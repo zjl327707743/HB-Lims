@@ -1,10 +1,8 @@
-# Secrets and local configuration
 .env
 .env.*
 !.env.example
 *.pem
 *.key
-# Local development outputs
 node_modules/
 dist/
 coverage/
@@ -13,7 +11,10 @@ __pycache__/
 *.pyc
 .DS_Store
 artifacts/
-# Do not commit real laboratory data or database exports
-*.sql
+playwright-report/
+test-results/
+# Real data and backups must never enter Git. SQL migrations are NOT ignored.
+/local-data/
+/backups/
 *.dump
 *.bak

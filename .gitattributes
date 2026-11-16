@@ -1,0 +1,11 @@
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.docx -text
+*.zip -text
+# Preserve the imported authority document byte-for-byte.
+docs/LIMS独立前端开发规范.md -text

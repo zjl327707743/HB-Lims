@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scope": "Formal HB-Lims implementation only; accepted prototype is not production implementation",
+  "defaults": {
+    "implementation": "NOT_IMPLEMENTED",
+    "test_status": "NOT_RUN",
+    "owner": "UNASSIGNED",
+    "design_ref": "",
+    "case_ref": "",
+    "evidence_ref": "",
+    "decision_ref": ""
+  },
+  "overrides": {}
+}

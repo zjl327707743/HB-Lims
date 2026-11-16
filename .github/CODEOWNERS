@@ -1,0 +1,11 @@
+# Initial routing only, not an enforced approval rule.
+# Replace/add real write-enabled reviewers after Owner confirms the roster.
+# Do not add fictitious @org/team names. Author cannot approve own PR.
+* @zjl327707743
+/.github/ @zjl327707743
+/scripts/governance/ @zjl327707743
+/docs/requirements/ @zjl327707743
+/docs/validation/ @zjl327707743
+/packages/contracts/ @zjl327707743
+/apps/api/modules/identity/ @zjl327707743
+/apps/api/modules/quality/ @zjl327707743

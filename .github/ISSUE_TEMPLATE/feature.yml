@@ -1,0 +1,23 @@
+name: 业务开发任务
+description: 关联URS、路径、接口和验收条件
+title: '[功能] '
+body:
+  - type: textarea
+    id: requirements
+    attributes:
+      label: URS原编号与业务目标
+      description: 保留原编号；非URS新增需求说明来源与批准状态。
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 修改路径、依赖和明确不做事项
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 正向、拒绝路径与验收证据
+    validations:
+      required: true
