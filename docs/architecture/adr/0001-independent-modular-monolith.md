@@ -1,5 +1,7 @@
 # ADR-0001 独立开发、合同先行、模块化单体
 
+**后续评审提示（2026-11-16）：** 本页为第一版提案。Owner后来明确要求独立LIMS及第三方验证，并要求并列比较FastAPI、MySQL、Java、.NET与多种前端。请以 [ADR-0002独立验证与多技术路线评估](0002-independent-validation-architecture-evaluation.md) 为后续待决策方案；两份都未获正式批准，不得把本页Django/PostgreSQL建议视为冻结选型。
+
 状态：**Proposed — 待Owner及技术负责人批准**。日期2026-11-16。
 
 ## 背景

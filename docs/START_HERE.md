@@ -1,5 +1,7 @@
 # HB-Lims 团队入口
 
+**架构更新：** Owner明确自研LIMS并由第三方提供验证服务，HBOS只做入口或可选SSO。请优先阅读 [ADR-0002 技术对比](architecture/adr/0002-independent-validation-architecture-evaluation.md)、[系统与认证边界](architecture/hbos-lims-trust-boundary.md)、[第三方验证工作模式](validation/external-validation-operating-model.md)。此前ADR-0001仍作为早期提案留档，不代表决定技术框架。
+
 状态：基础治理候选；架构未批准、业务应用未实现、未部署。
 
 ## 建议阅读顺序

@@ -1,5 +1,7 @@
 # 独立前端开发分区
 
+**技术栈待选：** React/TypeScript/Ant Design、Vue3/TypeScript/Ant Design Vue、Angular/TypeScript并列评估；现有V3.1仅定义被采用的视觉/交互基线。见 [ADR-0002](../../docs/architecture/adr/0002-independent-validation-architecture-evaluation.md)。下方原Vue建议只是历史初始方案。
+
 状态：仅分区与合同，尚未创建可启动应用。建议Vue3/TypeScript/Ant Design Vue，待ADR批准后在本目录创建并锁定工程依赖。
 
 以原V3.1为交互和视觉依据；建议src下按features、components、commands、adapters、stores、router、styles、i18n组织。我的工作/请验/检验/复核/资源等按业务域划分，禁止继续往单个HTML追加覆盖脚本。

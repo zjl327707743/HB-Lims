@@ -1,5 +1,7 @@
 # HB-Lims
 
+**2026-11-16 技术选型更新：** 自研LIMS必须独立运行和接受第三方验证，HBOS只作为入口/可选SSO。前后端和数据库不预设Django、PostgreSQL或Vue；详见 [ADR-0002 技术重评](docs/architecture/adr/0002-independent-validation-architecture-evaluation.md)、[HBOS边界](docs/architecture/hbos-lims-trust-boundary.md)和[外部验证方案](docs/validation/external-validation-operating-model.md)。相关文档仍是 Proposed，不代表技术栈已经确定。
+
 LIMS project — 海滨实验室信息管理系统独立开发仓库。
 
 ## 当前状态
