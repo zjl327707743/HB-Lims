@@ -1,9 +1,9 @@
-# 前后端与跨域合同
+# 前后端业务合同
 
-状态：规范分区，尚无批准的完整OpenAPI。M1先提交最小业务命令合同，Mock与HTTP共同实现；后端和前端分别验收相同合成场景。
+[当前技术规范](../../docs/standards/README.md) 下，FastAPI OpenAPI定义请求/响应并生成TS客户端类型；浏览器校验、Pydantic及DB约束各负其责。Mock与真实HTTP共享批准的合同。
 
-合同至少包括稳定ID、资源版本、状态/允许动作、数据范围、分页过滤、单位和十进制表示、UTC时间及显示时区、附件来源、错误码、幂等键和版本冲突响应。
+必须定义稳定ID、对象版本、UTC时间/展示时区、Decimal字符串及单位、可操作状态、范围过滤、分页排序白名单、结构化错误/request_id、expected_version、Idempotency-Key和签署授权绑定。
 
-变更动作推荐显式命令（submit、receive、assign、record-result、review、approve），而非任意PATCH状态字段。客户端不能提交可信actor、签名时间、审批角色或最终判定来绕过后端。
+受控动作submit/receive/record-result/correct/review/approve/retest须显式命令；actor/可信时间/批准权限不能由客户端任意填。相同幂等键不同payload冲突，超时可按命令ID查状态。
 
-接口破坏性变更必须版本化与迁移计划。系统集成有发送/回执/失败状态，不能只显示“已连接”图标。
+不在前端复制质量规则；不以ORM表模型直接暴露可写签名/角色字段。破坏性变更需版本策略和兼容测试；接口回执不是仅有“已连接”图标。当前尚无完整批准的OpenAPI实现。

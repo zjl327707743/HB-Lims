@@ -1,54 +1,46 @@
 # HB-Lims
 
-**2026-11-16 技术选型更新：** 自研LIMS必须独立运行和接受第三方验证，HBOS只作为入口/可选SSO。前后端和数据库不预设Django、PostgreSQL或Vue；详见 [ADR-0002 技术重评](docs/architecture/adr/0002-independent-validation-architecture-evaluation.md)、[HBOS边界](docs/architecture/hbos-lims-trust-boundary.md)和[外部验证方案](docs/validation/external-validation-operating-model.md)。相关文档仍是 Proposed，不代表技术栈已经确定。
+新乡海滨 LIMS 独立开发仓库。当前为**技术规范与治理阶段**，尚无正式业务应用、未部署、未完成第三方验证。
 
-LIMS project — 海滨实验室信息管理系统独立开发仓库。
+## 团队现在从这里开始
 
-## 当前状态
+[技术规范 V1.0](docs/standards/README.md) 是唯一当前工程入口；[前端规范 V2](docs/LIMS独立前端开发规范.md) 已在原路径更新，保留V3.1视觉和业务交互。旧ADR/RFC仅为历史研究，不再据其同时选择多个框架。
 
-**项目基础建设 / 尚无正式业务应用 / 未部署 / 未通过正式验证。**
+本轮方向：Next.js App Router / React / TypeScript / Ant Design / TanStack Query / nuqs；FastAPI / SQLAlchemy 2.0 / Alembic / PostgreSQL；Celery / Redis；Docker Compose / Nginx / GitHub Actions。图表统一Recharts，Zod/Zustand按需。HBOS仅入口或受控SSO，不共享质量数据与发布节奏。
 
-已上传的 URS、V3.1 原型和开发规范是需求与界面依据，不是生产系统。本轮工程目录为团队协作分区，技术选型仍为 Proposed，不能把目录、原型或 CI 绿色视为业务已实现。
+S3接口采用，但**生产存储产品待准入**，社区MinIO不作为默认生产选择。精确版本锁、容量、身份签署策略、质量适用规则和恢复目标仍需证据与批准。规范落库不代表兼容测试或GMP验证已通过。
 
-从 [团队入口](docs/START_HERE.md) 开始；查看 [资料审阅](docs/review/2026-11-16-source-review.md)、[竞品研究](docs/research/competitive-landscape.md)、[架构建议](docs/architecture/adr/0001-independent-modular-monolith.md)、[实施路线](docs/delivery/ROADMAP.md)。
+## 原始依据与变化
 
-## 权威资料
+[URS](docs/六车间QC实验室信息管理系统用户需求说明.docx) 与 [V3.1 ZIP](LIMS_V3.1_已采用交付包.zip) 字节不变。旧前端规范原字节归档至 [V1](docs/archive/frontend/LIMS独立前端开发规范.v1.20261116.md)，当前原路径为V2；见 [变更记录](docs/governance/changes/CHANGE-20261116-TECH-V1.md) 和 [源清单](docs/sources/README.md)。185条正式业务仍默认NOT_IMPLEMENTED / NOT_RUN。
 
-- [URS 原件](docs/六车间QC实验室信息管理系统用户需求说明.docx)
-- [V3.1 已采用原型包](LIMS_V3.1_已采用交付包.zip)
-- [独立前端开发规范](docs/LIMS独立前端开发规范.md)
-- [原件哈希与使用边界](docs/sources/README.md)
+## 项目分区
 
-三份原件保留原路径和字节；不覆盖、不重新编号、不把压缩包直接当生产源码。URS 适用主体与容量等差异见 [待决事项](docs/requirements/decisions.md)。
-
-## 分区
-
-| 路径 | 用途 |
+| 路径 | 职责 |
 | --- | --- |
-| `apps/web/` | 保留 V3.1 体验的独立前端 |
-| `apps/api/` | 模块化单体后端与领域边界 |
-| `apps/worker/` | 可选异步任务进程；不等于另建微服务 |
-| `packages/contracts/` | 前后端接口、命令、状态与错误约定 |
-| `packages/ui/` | 经确认的共用组件与设计 Token |
-| `docs/` | 需求、研究、设计、治理、验证、交付 |
-| `tests/` | 集成、端到端、安全、性能验收 |
-| `deploy/` | 环境隔离、发布与恢复方案 |
-| `scripts/governance/` | 可运行的原件和需求追踪检查 |
+| apps/web | Next前端及薄BFF |
+| apps/api/modules | FastAPI各业务域 |
+| apps/worker | Celery后台任务，不另造质量规则 |
+| packages/contracts | OpenAPI、命令、状态、错误和生成客户端合同 |
+| packages/ui | 被证实复用的组件与V3.1主题 |
+| docs/standards | 当前团队技术规范 |
+| docs/requirements | 原URS索引、状态、待决项 |
+| docs/validation | 第三方验证策略与受控证据规则 |
+| tests | 集成、E2E、安全、性能、视觉与可访问性 |
+| deploy | 隔离环境、版本化发布和恢复 |
+| scripts/governance | 原件/需求/规范的可执行检查 |
 
-## 本地治理检查
+这些分区目前主要是README和规范，不是已实现的服务。
 
-需要 Python 3.10+，当前治理脚本仅使用标准库，不安装应用依赖：
+## 当前可运行检查
 
 ```sh
 python3 scripts/governance/verify_sources.py
 python3 scripts/governance/check_repository.py
+python3 scripts/governance/check_technical_baseline.py
 python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 ```
 
-完整 185 条 RTM 由原件、编号索引及追踪状态生成到 `artifacts/governance/requirements-rtm.csv`；该文件是可重建输出，不能手工改它来改变完成状态。正式应用启动命令将在业务脚手架 PR 中提供，本轮没有可运行生产服务。
+只验证仓库材料与规范一致性，不验证业务正确性、浏览器像素、安全或合规。详见 [团队入口](docs/START_HERE.md)、[CONTRIBUTING](CONTRIBUTING.md)、[AGENTS](AGENTS.md)、[实施路线](docs/delivery/ROADMAP.md)。
 
-## 协作与边界
-
-先读 [CONTRIBUTING](CONTRIBUTING.md)、[AGENTS](AGENTS.md) 和 [安全规则](SECURITY.md)。通过短分支和小 PR 协作，禁止擅自改 main、生产数据、原件或企业权限。当前分支保护、成员配置与独立评审人待 [Issue #3](https://github.com/zjl327707743/HB-Lims/issues/3) 收口。
-
-本仓库为 Public：只提交已获公开授权的资料与合成测试数据。没有为本项目新增开源许可证；第三方代码和品牌权利按原有声明及后续授权决策处理。
+公共仓库只允许合成数据与获授权材料。成员/独立评审/main保护待Issue #3落实；不新增整体开源许可，不推断已开启分支保护，不自动生产部署。

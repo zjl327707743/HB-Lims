@@ -7,5 +7,5 @@
 *.csv text eol=lf
 *.docx -text
 *.zip -text
-# Preserve the imported authority document byte-for-byte.
-docs/LIMS独立前端开发规范.md -text
+# Frozen historical source bytes; active V2 is normal controlled UTF-8 Markdown.
+docs/archive/frontend/LIMS独立前端开发规范.v1.20261116.md -text

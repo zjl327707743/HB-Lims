@@ -1,7 +1,7 @@
-# 部署、运维与恢复分区
+# 部署与运行分区
 
-状态：仅规划，未创建运行环境或发布应用。未来配置按dev/test/uat/prod隔离；开发仅合成数据。生产数据库、文件存储、日志和备份不得与公共CI共用凭据。
+当前方向Docker Compose + Nginx + GitHub Actions；见 [交付门禁](../docs/standards/DELIVERY_VALIDATION.md) 和 [存储恢复](../docs/standards/STORAGE_TASKS.md)。这不是已部署环境。
 
-建议TLS入口、应用进程、独立PG、受控文件存储及按需worker；受限管理账号、监控、校时、备份恢复、迁移回滚、制品摘要与审批记录必须配套。Docker Compose可作开发入口，生产方案需IT批准。
+DEV/TEST/验证(UAT)/PROD隔离身份、数据、密钥与配置。生产不挂载可变源码，镜像与配置有摘要；单机Compose不是HA，RPO/RTO未批准不得承诺可用性。数据库迁移单独执行，恢复需PG与对象版本一致。
 
-.env.example只能提供假值与变量说明；真实密钥放批准的秘密管理设施。迁移脚本可以提交，真实SQL导出不允许。版本发布、数据迁移和设备接入必须另行授权。
+MinIO社区版不作为生产默认；S3产品准入尚未完成。真实密钥、现场记录和备份不能进仓库或公共CI。构建/测试可自动，生产发布必须批准，不默认GitHub合并即上线。

@@ -18,6 +18,8 @@ jobs:
           persist-credentials: false
       - name: Check structure and generate complete requirement traceability matrix
         run: python3 scripts/governance/check_repository.py
+      - name: Check technical baseline and preserved frontend requirements
+        run: python3 scripts/governance/check_technical_baseline.py
       - name: Test governance rejection paths
         run: python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
       - name: Preserve reviewable foundation and governance evidence
