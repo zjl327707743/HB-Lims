@@ -1,0 +1,19 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Local development outputs
+node_modules/
+dist/
+coverage/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+artifacts/
+# Do not commit real laboratory data or database exports
+*.sql
+*.dump
+*.bak
