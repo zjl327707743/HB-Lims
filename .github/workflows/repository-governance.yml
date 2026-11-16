@@ -20,6 +20,10 @@ jobs:
         run: python3 scripts/governance/check_repository.py
       - name: Check technical baseline and preserved frontend requirements
         run: python3 scripts/governance/check_technical_baseline.py
+      - name: Check accepted framework, scope snapshots and task dependencies
+        run: python3 scripts/governance/check_framework.py
+      - name: Reproduce planning estimates without treating them as guarantees
+        run: python3 scripts/governance/estimate_delivery.py
       - name: Test governance rejection paths
         run: python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
       - name: Preserve reviewable foundation and governance evidence
@@ -43,6 +47,7 @@ jobs:
             AGENTS.md
             CONTRIBUTING.md
             SECURITY.md
+            Makefile
             .gitignore
             .gitattributes
             .editorconfig

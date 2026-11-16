@@ -1,36 +1,38 @@
-# HB-Lims 团队技术规范 V1.0
+# HB-Lims 团队规范 V1.1：整体开发框架
 
-状态：**DEVELOPMENT_BASELINE_FOR_REVIEW**。依据Owner于2026-11-16 07:18:31 UTC提出的技术方向及修改规范授权编制；代码审查、QA批准、依赖兼容测试及生产验证尚未完成。本文是开发规范，不是已通过验证的产品声明。
+**FRAMEWORK-V1 / OWNER_ACCEPTED_PLANNING_BASELINE。** Owner于2026-11-16T10:13:30Z认可前轮扩展规划并授权整合PR #1。技术主线、14项控制与小团队方法已收敛；PR审查/合并、QA批准、精确版本准入、应用验证和生产发布尚未完成。不要把“规范定下来”理解成这些事项已通过。
 
-## 一、当前唯一实施入口
+## 一、团队唯一入口
 
-| 文档 | 内容 |
+首先阅读[整体基线](FRAMEWORK_BASELINE.md)，再按岗位阅读下表。TECH-V1仍是技术组件基线，FRAMEWORK-V1在其上纳入已认可的控制和交付规则；历史研究不再作为并列实现方案。
+
+| 分区 | 规范 |
 | --- | --- |
-| [技术栈与架构](TECH_STACK.md) | 固定主技术路线、模块化单体、HBOS边界、版本策略 |
-| [原路径前端规范 V2](../LIMS独立前端开发规范.md) | 保留V3.1外观/业务/验收条款，更新技术实施要求 |
-| [前端工程规范](FRONTEND.md) | Next/AntD、缓存、表单/表格、URL、视觉回归 |
-| [后端与数据规范](BACKEND_DATA.md) | FastAPI/SQLAlchemy/PG、命令、事务、版本及计算 |
-| [身份、签名与审计](SECURITY_SIGNATURE.md) | 登录/授权/签名区别、隔离和拒绝路径 |
-| [存储、队列与恢复](STORAGE_TASKS.md) | S3准入、MinIO风险、Celery、Redis与恢复 |
-| [交付和验证门禁](DELIVERY_VALIDATION.md) | 开发顺序、CI、环境、第三方验证证据 |
-| [外部依据](SOURCES.md) | 官方来源、查阅日期、结论边界 |
-| [本轮变更记录](../governance/changes/CHANGE-20261116-TECH-V1.md) | 旧版存档、权威关系、未决事项及回退 |
+| 技术基础 | [技术栈](TECH_STACK.md)、[前端V2](../LIMS独立前端开发规范.md)、[前端工程](FRONTEND.md)、[后端数据](BACKEND_DATA.md) |
+| 公共控制 | [身份签名](SECURITY_SIGNATURE.md)、[存储队列](STORAGE_TASKS.md)、[交付门禁](DELIVERY_VALIDATION.md) |
+| 扩展控制1 | [法规/记录主本](REGULATORY_SCOPE.md)、[原始记录/审计复核](RECORDS_AUDIT.md) |
+| 扩展控制2 | [LES/配置/计算/异常](LES_CONFIG_CALC.md)、[报告/采集/接口](REPORTS_INTEGRATIONS.md) |
+| 扩展控制3 | [恢复/运行/退役](RECOVERY_OPERATIONS.md)、[验证证据](VALIDATION_EVIDENCE.md) |
+| 范围与登记 | [28项功能映射](../requirements/FUNCTION_SCOPE.md)、[14控制/8技术登记](controls.json)、[技术增补准入](EXTENSIONS.md)、[待决事项](../requirements/decisions.md) |
+| 团队执行 | [开发手册](../delivery/TEAM_PLAYBOOK.md)、[前四周](../delivery/FIRST_FOUR_WEEKS.md)、[任务依赖](../delivery/backlog.json)、[路线/周期](../delivery/ROADMAP.md) |
+| 模板与追溯 | [任务](../templates/TASK_BRIEF.md)、[交接](../templates/HANDOFF.md)、[证据](../templates/VALIDATION_EVIDENCE.json)、[发布清单](../templates/RELEASE_MANIFEST.json) |
+| 来源与变更 | [技术依据](SOURCES.md)、[输入登记](../sources/PLANNING_INPUTS.md)、[TECH-V1变更](../governance/changes/CHANGE-20261116-TECH-V1.md)、[FRAMEWORK-V1变更](../governance/changes/CHANGE-20261116-FRAMEWORK-V1.md) |
 
-规则层级：URS及批准补充决定业务；V3.1 ZIP决定已采用视觉与交互；本规范决定工程实现。技术文件不得删除或暗改URS。原URI保留的前端规范V2和本目录相互引用，旧ADR/RFC仅用于历史比较，不再要求并行实现多框架。
+## 二、不会再次摇摆的主路线
 
-## 二、主选项与限制
+Next.js/React/TypeScript、AntD/Registry、TanStack Query、AntD Form/Table、nuqs、Recharts；Zod/Zustand按需。FastAPI/Pydantic、SQLAlchemy 2.0、Alembic、PostgreSQL；Celery/Redis；S3接口；Docker Compose/Nginx/GitHub Actions。独立LIMS模块化单体；HBOS仅入口或受控SSO。
 
-采用 Next.js App Router + React + TypeScript、Ant Design及Registry、TanStack Query、AntD Form/Table、nuqs；Zod/Zustand按需；图表统一Recharts。后端采用FastAPI、SQLAlchemy 2.0、Alembic、PostgreSQL；任务采用Celery；Redis仅作短期状态/缓存/消息设施。部署使用Docker Compose和Nginx，CI使用GitHub Actions。没有引入Vue、Django、SQLModel、ARQ或第二套UI作为默认实现。
+14项控制纳入开发；8项增补区分工具方向、PoC准入和按需专项，不是所有库全部必装。具体产品/版本、许可证、身份/签署、保留/RPO/RTO和QA适用性仍需证据。S3生产产品仍待准入。V3.1品牌、玻璃顶栏、圆角侧栏、紫色主操作、报告和业务交互不因本轮改变。
 
-S3兼容接口采用；**生产存储产品尚未准入，MinIO社区版不再作为默认生产选型**。依赖精确版本、身份提供方、签名再鉴别策略、保留期/RPO/RTO、容量及QA适用规则仍需专项收口。此处的“采用”只表明本轮开发规范方向，不能解释为软件已运行、依赖已测或已获质量放行。
-
-## 三、可执行的当前检查
+## 三、可执行的治理检查
 
 ```sh
 python3 scripts/governance/verify_sources.py
 python3 scripts/governance/check_repository.py
 python3 scripts/governance/check_technical_baseline.py
+python3 scripts/governance/check_framework.py
+python3 scripts/governance/estimate_delivery.py
 python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 ```
 
-这些命令仅检查源文件、需求索引和规范一致性；正式应用、性能、浏览器视觉、签名、恢复及第三方验证均为NOT_RUN。团队不能把治理CI通过当成业务已实现。
+只验证原件/索引/规范/规划结构，不验证LIMS业务、视觉像素、安全、性能、恢复或GMP符合性。原185条RTM仍默认NOT_IMPLEMENTED/NOT_RUN。模板、计划和源码审阅不能替代实际证据与QA放行。

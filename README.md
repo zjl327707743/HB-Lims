@@ -1,46 +1,43 @@
 # HB-Lims
 
-新乡海滨 LIMS 独立开发仓库。当前为**技术规范与治理阶段**，尚无正式业务应用、未部署、未完成第三方验证。
+新乡海滨LIMS独立开发仓库。当前交付为**团队开发整体框架**，不是已运行或已验证的业务系统。
 
-## 团队现在从这里开始
+## 团队从这里开始
 
-[技术规范 V1.0](docs/standards/README.md) 是唯一当前工程入口；[前端规范 V2](docs/LIMS独立前端开发规范.md) 已在原路径更新，保留V3.1视觉和业务交互。旧ADR/RFC仅为历史研究，不再据其同时选择多个框架。
+[团队规范V1.1](docs/standards/README.md) → [整体基线](docs/standards/FRAMEWORK_BASELINE.md) → [开发手册](docs/delivery/TEAM_PLAYBOOK.md) → [前四周任务](docs/delivery/FIRST_FOUR_WEEKS.md)。
 
-本轮方向：Next.js App Router / React / TypeScript / Ant Design / TanStack Query / nuqs；FastAPI / SQLAlchemy 2.0 / Alembic / PostgreSQL；Celery / Redis；Docker Compose / Nginx / GitHub Actions。图表统一Recharts，Zod/Zustand按需。HBOS仅入口或受控SSO，不共享质量数据与发布节奏。
+Owner已认可主技术路线、14项控制增补及2–3人分期方法。PR审查与合并、QA正式批准、依赖精确锁定、生产存储准入、应用实现和验证仍是独立门禁；不由规划认可自动完成。
 
-S3接口采用，但**生产存储产品待准入**，社区MinIO不作为默认生产选择。精确版本锁、容量、身份签署策略、质量适用规则和恢复目标仍需证据与批准。规范落库不代表兼容测试或GMP验证已通过。
+采用Next/React/TypeScript/AntD、TanStack Query、nuqs、Recharts；FastAPI/SQLAlchemy 2.0/Alembic/PostgreSQL；Celery/Redis；S3接口；Compose/Nginx/GitHub Actions。独立LIMS，HBOS只入口/受控SSO，不共享业务库、质量权限或发布节奏。
 
-## 原始依据与变化
+[前端V2](docs/LIMS独立前端开发规范.md)保留V3.1视觉与操作，旧版原字节[归档](docs/archive/frontend/LIMS独立前端开发规范.v1.20261116.md)。[URS原件](docs/六车间QC实验室信息管理系统用户需求说明.docx)和[V3.1包](LIMS_V3.1_已采用交付包.zip)未改变；185条原编号保持。[28项功能范围](docs/requirements/FUNCTION_SCOPE.md)、[14控制/8技术登记](docs/standards/controls.json)和[周期模型](docs/delivery/ROADMAP.md)已经归入统一规划。
 
-[URS](docs/六车间QC实验室信息管理系统用户需求说明.docx) 与 [V3.1 ZIP](LIMS_V3.1_已采用交付包.zip) 字节不变。旧前端规范原字节归档至 [V1](docs/archive/frontend/LIMS独立前端开发规范.v1.20261116.md)，当前原路径为V2；见 [变更记录](docs/governance/changes/CHANGE-20261116-TECH-V1.md) 和 [源清单](docs/sources/README.md)。185条正式业务仍默认NOT_IMPLEMENTED / NOT_RUN。
+## 工程分区
 
-## 项目分区
-
-| 路径 | 职责 |
+| 路径 | 责任 |
 | --- | --- |
-| apps/web | Next前端及薄BFF |
-| apps/api/modules | FastAPI各业务域 |
-| apps/worker | Celery后台任务，不另造质量规则 |
-| packages/contracts | OpenAPI、命令、状态、错误和生成客户端合同 |
-| packages/ui | 被证实复用的组件与V3.1主题 |
-| docs/standards | 当前团队技术规范 |
-| docs/requirements | 原URS索引、状态、待决项 |
-| docs/validation | 第三方验证策略与受控证据规则 |
-| tests | 集成、E2E、安全、性能、视觉与可访问性 |
-| deploy | 隔离环境、版本化发布和恢复 |
-| scripts/governance | 原件/需求/规范的可执行检查 |
+| apps/web | Next Web与薄BFF、V3.1主题与交互 |
+| apps/api/modules | FastAPI领域服务；统一权限/版本/事务/签名/审计 |
+| apps/worker | 后台报告/采集处理/通知，不另造质量规则 |
+| packages/contracts / packages/ui | 受控OpenAPI和经确认的共用组件 |
+| docs/standards / docs/requirements | 规范、控制、范围、URS和待决事项 |
+| docs/delivery / docs/templates | 路线、依赖、团队流程和交付模板 |
+| tests / deploy | 正式实现后的测试与隔离运行配置 |
+| scripts/governance | 当前可执行的资料/规划检查 |
 
-这些分区目前主要是README和规范，不是已实现的服务。
+这些分区仍以规范和README为主，没有把目录当成已实现应用。
 
-## 当前可运行检查
+## 当前可执行检查
 
 ```sh
 python3 scripts/governance/verify_sources.py
 python3 scripts/governance/check_repository.py
 python3 scripts/governance/check_technical_baseline.py
+python3 scripts/governance/check_framework.py
+python3 scripts/governance/estimate_delivery.py
 python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 ```
 
-只验证仓库材料与规范一致性，不验证业务正确性、浏览器像素、安全或合规。详见 [团队入口](docs/START_HERE.md)、[CONTRIBUTING](CONTRIBUTING.md)、[AGENTS](AGENTS.md)、[实施路线](docs/delivery/ROADMAP.md)。
+治理通过不等于业务或GMP通过。正式测试仍NOT_RUN；不新增空成功Job。原始证据/正式批准存公司受控系统，公共仓库只存合成样例和脱敏引用。
 
-公共仓库只允许合成数据与获授权材料。成员/独立评审/main保护待Issue #3落实；不新增整体开源许可，不推断已开启分支保护，不自动生产部署。
+先核实[GitHub保护与人员清单](docs/governance/github-settings-checklist.md)，不把CODEOWNERS文件当成保护已生效。参阅[CONTRIBUTING](CONTRIBUTING.md)、[AGENTS](AGENTS.md)、[输入来源](docs/sources/PLANNING_INPUTS.md)和[本轮变更](docs/governance/changes/CHANGE-20261116-FRAMEWORK-V1.md)。
