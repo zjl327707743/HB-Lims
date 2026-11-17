@@ -22,6 +22,67 @@ REQUIRED = ('README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'SECURITY.md',
     'tests/README.md', 'deploy/README.md')
 IMPLEMENTATION = {'NOT_IMPLEMENTED', 'IN_PROGRESS', 'IMPLEMENTED', 'BLOCKED', 'DEFERRED'}
 TEST = {'NOT_RUN', 'PASS', 'FAIL', 'BLOCKED'}
+# Only these development-status fields may be changed outside the original URS.
+TRACKING_FIELDS = frozenset({'implementation', 'test_status', 'owner',
+    'design_ref', 'case_ref', 'evidence_ref', 'decision_ref'})
+SOURCE_FIELDS = ('urs_id', 'original_id', 'source_table', 'source_row',
+    'source_category', 'source_group', 'source_text')
+
+
+def validate_tracking(tracking: dict, source_ids: set[str]) -> list[str]:
+    """Reject authority-field injection in defaults and per-URS overrides."""
+    if not isinstance(tracking, dict):
+        return ['Traceability must be an object']
+    defaults = tracking.get('defaults', {})
+    overrides = tracking.get('overrides', {})
+    if not isinstance(defaults, dict) or not isinstance(overrides, dict):
+        return ['Defaults and overrides must be objects']
+    errors = []
+
+    def check_entry(entry: dict, location: str) -> None:
+        unexpected = set(entry) - TRACKING_FIELDS
+        if unexpected:
+            errors.append(f'Forbidden traceability fields at {location}: {sorted(unexpected)}')
+        for field, value in entry.items():
+            if field in TRACKING_FIELDS and not isinstance(value, str):
+                errors.append(f'Tracking value must be text: {location}.{field}')
+
+    check_entry(defaults, 'defaults')
+    if defaults.get('implementation') != 'NOT_IMPLEMENTED' or defaults.get('test_status') != 'NOT_RUN':
+        errors.append('Defaults must remain NOT_IMPLEMENTED / NOT_RUN')
+    for rid, entry in overrides.items():
+        if rid not in source_ids or not isinstance(entry, dict):
+            errors.append(f'Unknown or malformed requirement override: {rid}')
+            continue
+        check_entry(entry, rid)
+        record = {**defaults, **entry}
+        implementation = record.get('implementation')
+        status = record.get('test_status')
+        if (not isinstance(implementation, str) or implementation not in IMPLEMENTATION or
+                not isinstance(status, str) or status not in TEST):
+            errors.append(f'Invalid status: {rid}')
+        if status == 'PASS' and (implementation != 'IMPLEMENTED' or
+                not all(isinstance(record.get(k), str) and record[k].strip()
+                        for k in ('design_ref', 'case_ref', 'evidence_ref'))):
+            errors.append(f'PASS needs implementation, design, test case and evidence: {rid}')
+        if implementation == 'DEFERRED' and not (isinstance(record.get('decision_ref'), str)
+                                                and record['decision_ref'].strip()):
+            errors.append(f'DEFERRED needs approved decision reference: {rid}')
+    return errors
+
+
+def build_rtm_rows(source: list[dict], tracking: dict) -> list[dict]:
+    errors = validate_tracking(tracking, {row['urs_id'] for row in source})
+    if errors:
+        raise ValueError('; '.join(errors))
+    rows = []
+    for original in source:
+        state = {**tracking['defaults'], **tracking.get('overrides', {}).get(original['urs_id'], {})}
+        # Apply source fields last as defense in depth, even after validation.
+        rows.append({**{key: state.get(key, '') for key in TRACKING_FIELDS},
+                     **{key: original[key] for key in SOURCE_FIELDS}})
+    return rows
+
 
 
 def read_requirements(path: Path) -> list[dict[str, str]]:
@@ -65,25 +126,7 @@ def validate(index: list[dict], source: list[dict], tracking: dict) -> list[str]
         for field in ('source_table', 'source_row', 'source_category'):
             if row.get(field) != original.get(field):
                 errors.append(f"Source locator/category mismatch: {row.get('urs_id')} {field}")
-    defaults = tracking.get('defaults', {})
-    if defaults.get('implementation') != 'NOT_IMPLEMENTED' or defaults.get('test_status') != 'NOT_RUN':
-        errors.append('Defaults must remain NOT_IMPLEMENTED / NOT_RUN')
-    overrides = tracking.get('overrides', {})
-    if not isinstance(overrides, dict):
-        return errors + ['Overrides must be an object']
-    for rid, entry in overrides.items():
-        if rid not in sources or not isinstance(entry, dict):
-            errors.append(f'Unknown or malformed requirement override: {rid}')
-            continue
-        record = {**defaults, **entry}
-        if record.get('implementation') not in IMPLEMENTATION or record.get('test_status') not in TEST:
-            errors.append(f'Invalid status: {rid}')
-        if record.get('test_status') == 'PASS' and (
-                record.get('implementation') != 'IMPLEMENTED' or
-                not all(record.get(k) for k in ('design_ref', 'case_ref', 'evidence_ref'))):
-            errors.append(f'PASS needs implementation, design, test case and evidence: {rid}')
-        if record.get('implementation') == 'DEFERRED' and not record.get('decision_ref'):
-            errors.append(f'DEFERRED needs approved decision reference: {rid}')
+    errors += validate_tracking(tracking, set(source_ids))
     return errors
 
 
@@ -103,12 +146,17 @@ def main() -> int:
     fields = ['urs_id', 'original_id', 'source_table', 'source_row', 'source_category',
               'source_group', 'source_text', 'implementation', 'test_status',
               'owner', 'design_ref', 'case_ref', 'evidence_ref', 'decision_ref']
-    rows = []
-    for requirement in source:
-        rows.append({**requirement, **tracking['defaults'],
-                     **tracking.get('overrides', {}).get(requirement['urs_id'], {})})
     out = ROOT / 'artifacts/governance'
     out.mkdir(parents=True, exist_ok=True)
+    report = {'scope': 'repository governance only; not application validation',
+              'requirements': len(source), 'errors': errors}
+    (out / 'check-result.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    if errors:
+        # A rejected input must not leave a misleading new or stale RTM artifact.
+        (out / 'requirements-rtm.csv').unlink(missing_ok=True)
+        print(json.dumps(report, ensure_ascii=False))
+        return 1
+    rows = build_rtm_rows(source, tracking)
     with (out / 'requirements-rtm.csv').open('w', encoding='utf-8-sig', newline='') as stream:
         writer = csv.DictWriter(stream, fieldnames=fields)
         writer.writeheader()
