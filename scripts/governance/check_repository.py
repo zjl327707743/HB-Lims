@@ -7,6 +7,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 import zipfile
+from check_evidence import check_tracking_references, repository_json, repository_path, evaluation_time
 
 ROOT = Path(__file__).resolve().parents[2]
 NS = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
@@ -29,7 +30,7 @@ SOURCE_FIELDS = ('urs_id', 'original_id', 'source_table', 'source_row',
     'source_category', 'source_group', 'source_text')
 
 
-def validate_tracking(tracking: dict, source_ids: set[str]) -> list[str]:
+def validate_tracking(tracking: dict, source_ids: set[str], root: Path | None = None, as_of=None) -> list[str]:
     """Reject authority-field injection in defaults and per-URS overrides."""
     if not isinstance(tracking, dict):
         return ['Traceability must be an object']
@@ -38,6 +39,12 @@ def validate_tracking(tracking: dict, source_ids: set[str]) -> list[str]:
     if not isinstance(defaults, dict) or not isinstance(overrides, dict):
         return ['Defaults and overrides must be objects']
     errors = []
+    if set(tracking) - {'schema_version', 'scope', 'defaults', 'overrides'}:
+        errors.append('Unknown traceability top-level fields')
+    if 'schema_version' in tracking and (type(tracking['schema_version']) is not int or tracking['schema_version'] != 1):
+        errors.append('Unsupported traceability schema')
+    if 'scope' in tracking and not isinstance(tracking['scope'], str):
+        errors.append('Traceability scope must be text')
 
     def check_entry(entry: dict, location: str) -> None:
         unexpected = set(entry) - TRACKING_FIELDS
@@ -68,11 +75,13 @@ def validate_tracking(tracking: dict, source_ids: set[str]) -> list[str]:
         if implementation == 'DEFERRED' and not (isinstance(record.get('decision_ref'), str)
                                                 and record['decision_ref'].strip()):
             errors.append(f'DEFERRED needs approved decision reference: {rid}')
+    if not errors:
+        errors += check_tracking_references(tracking, source_ids, root if root is not None else ROOT, as_of)
     return errors
 
 
-def build_rtm_rows(source: list[dict], tracking: dict) -> list[dict]:
-    errors = validate_tracking(tracking, {row['urs_id'] for row in source})
+def build_rtm_rows(source: list[dict], tracking: dict, as_of=None) -> list[dict]:
+    errors = validate_tracking(tracking, {row['urs_id'] for row in source}, as_of=as_of)
     if errors:
         raise ValueError('; '.join(errors))
     rows = []
@@ -112,7 +121,7 @@ def read_requirements(path: Path) -> list[dict[str, str]]:
     return result
 
 
-def validate(index: list[dict], source: list[dict], tracking: dict) -> list[str]:
+def validate(index: list[dict], source: list[dict], tracking: dict, as_of=None) -> list[str]:
     errors = []
     source_ids = [r['urs_id'] for r in source]
     ids = [r.get('urs_id') for r in index]
@@ -126,7 +135,7 @@ def validate(index: list[dict], source: list[dict], tracking: dict) -> list[str]
         for field in ('source_table', 'source_row', 'source_category'):
             if row.get(field) != original.get(field):
                 errors.append(f"Source locator/category mismatch: {row.get('urs_id')} {field}")
-    errors += validate_tracking(tracking, set(source_ids))
+    errors += validate_tracking(tracking, set(source_ids), as_of=as_of)
     return errors
 
 
@@ -136,36 +145,47 @@ def safe_csv(value: object) -> str:
 
 
 def main() -> int:
-    errors = [f'Missing required file: {p}' for p in REQUIRED if not (ROOT / p).is_file()]
-    manifest = json.loads((ROOT / 'docs/sources/manifest.json').read_text(encoding='utf-8'))
-    source = read_requirements(ROOT / manifest['urs_path'])
-    with (ROOT / 'docs/requirements/urs-index.csv').open(encoding='utf-8', newline='') as stream:
-        index = list(csv.DictReader(stream))
-    tracking = json.loads((ROOT / 'docs/requirements/traceability.json').read_text(encoding='utf-8'))
-    errors += validate(index, source, tracking)
-    fields = ['urs_id', 'original_id', 'source_table', 'source_row', 'source_category',
-              'source_group', 'source_text', 'implementation', 'test_status',
-              'owner', 'design_ref', 'case_ref', 'evidence_ref', 'decision_ref']
     out = ROOT / 'artifacts/governance'
     out.mkdir(parents=True, exist_ok=True)
-    report = {'scope': 'repository governance only; not application validation',
+    # Failed input/registry reads must also remove a previous successful export.
+    export = out / 'requirements-rtm.csv'
+    export.unlink(missing_ok=True)
+    (out / 'check-result.json').unlink(missing_ok=True)
+    source = []
+    errors = []
+    assessed_at = evaluation_time()
+    try:
+        errors = [f'Missing required file: {p}' for p in REQUIRED if not (ROOT / p).is_file()]
+        manifest = repository_json(ROOT, 'docs/sources/manifest.json')
+        source_path = repository_path(ROOT, manifest['urs_path'])
+        if not source_path.is_relative_to(ROOT.resolve()):
+            raise ValueError('URS path outside repository')
+        source = read_requirements(source_path)
+        with repository_path(ROOT, 'docs/requirements/urs-index.csv').open(encoding='utf-8', newline='') as stream:
+            index = list(csv.DictReader(stream))
+        tracking = repository_json(ROOT, 'docs/requirements/traceability.json')
+        errors += validate(index, source, tracking, as_of=assessed_at)
+        if not errors:
+            rows = build_rtm_rows(source, tracking, as_of=assessed_at)
+            fields = ['urs_id', 'original_id', 'source_table', 'source_row', 'source_category',
+                      'source_group', 'source_text', 'implementation', 'test_status',
+                      'owner', 'design_ref', 'case_ref', 'evidence_ref', 'decision_ref']
+            with export.open('w', encoding='utf-8-sig', newline='') as stream:
+                writer = csv.DictWriter(stream, fieldnames=fields)
+                writer.writeheader()
+                writer.writerows({k: safe_csv(row.get(k, '')) for k in fields} for row in rows)
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, RuntimeError, OverflowError, zipfile.BadZipFile) as exc:
+        errors.append(f'{type(exc).__name__}: {exc}')
+    if errors:
+        export.unlink(missing_ok=True)
+    report = {'scope': 'repository governance and offline engineering evidence integrity only; not application validation or approval authenticity',
+              'test_status_semantics': 'ENGINEERING_TEST_ONLY',
+              'validation_execution': 'NOT_ASSESSED', 'independent_review': 'NOT_ASSESSED',
+              'qa_release': 'NOT_ASSESSED', 'evaluated_at': assessed_at.isoformat(),
               'requirements': len(source), 'errors': errors}
     (out / 'check-result.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    if errors:
-        # A rejected input must not leave a misleading new or stale RTM artifact.
-        (out / 'requirements-rtm.csv').unlink(missing_ok=True)
-        print(json.dumps(report, ensure_ascii=False))
-        return 1
-    rows = build_rtm_rows(source, tracking)
-    with (out / 'requirements-rtm.csv').open('w', encoding='utf-8-sig', newline='') as stream:
-        writer = csv.DictWriter(stream, fieldnames=fields)
-        writer.writeheader()
-        writer.writerows({k: safe_csv(row.get(k, '')) for k in fields} for row in rows)
-    report = {'scope': 'repository governance only; not application validation',
-              'requirements': len(rows), 'errors': errors}
-    (out / 'check-result.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False))
-    return 1 if errors else 0
+    return int(bool(errors))
 
 
 if __name__ == '__main__':

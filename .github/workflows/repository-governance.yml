@@ -22,6 +22,8 @@ jobs:
         run: python3 scripts/governance/check_technical_baseline.py
       - name: Check accepted framework, scope snapshots and task dependencies
         run: python3 scripts/governance/check_framework.py
+      - name: Check development constraint schema and human document synchronization
+        run: python3 scripts/governance/render_development_constraints.py --check
       - name: Reproduce planning estimates without treating them as guarantees
         run: python3 scripts/governance/estimate_delivery.py
       - name: Test governance rejection paths

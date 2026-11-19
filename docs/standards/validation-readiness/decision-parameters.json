@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "id": "HB-LIMS-PENDING-PARAMETERS-20261119",
+  "note": "参数清单不构成已批准配置。值、批准者、日期和引用不得由Agent代填；与原D01–D19追踪，不另造已关闭决定。",
+  "parameters": [
+    {
+      "id": "PAR-01",
+      "title": "主体与法规范围",
+      "existing_decisions": "D01/D09",
+      "parameters": "法人、厂区、产品/API或制剂、目标市场、质量协议、记录用途",
+      "owner_roles": "QC/QA",
+      "gate": "相关范围/设计批准前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-02",
+      "title": "纸电主本与试点边界",
+      "existing_decisions": "D16",
+      "parameters": "实验室、样品、方法、报告、设备、记录类型、并行与切换条件",
+      "owner_roles": "QC/QA",
+      "gate": "正式质量试点前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-03",
+      "title": "更正与结果采用",
+      "existing_decisions": "D05",
+      "parameters": "URS-610/704的更正理由、审批、原值、新修订、复测及采用关系",
+      "owner_roles": "QC/QA",
+      "gate": "相关模型和流程定稿前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-04",
+      "title": "OOS与QMS权威",
+      "existing_decisions": "D13",
+      "parameters": "唯一调查主记录、LIMS/QMS结案权、CAPA、报告及批放行边界",
+      "owner_roles": "QC/QA",
+      "gate": "OOS及接口设计定稿前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-05",
+      "title": "六次签署与职责隔离",
+      "existing_decisions": "D06",
+      "parameters": "每步含义、角色、顺序、独立复核和同人合法情形",
+      "owner_roles": "QA/QC",
+      "gate": "身份与签名设计前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-06",
+      "title": "认证与会话策略",
+      "existing_decisions": "D03/D06",
+      "parameters": "IdP、第二密码差异、单终端、会话/签署时限、撤权、失败限速、恢复/应急策略",
+      "owner_roles": "IT/QA",
+      "gate": "认证与签名准入前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-07",
+      "title": "资质和资源新鲜度",
+      "existing_decisions": "D15",
+      "parameters": "DMS/TMS权威、培训/校准/效期、刷新间隔、失联/未知/例外策略",
+      "owner_roles": "QC/QA/IT",
+      "gate": "资源准入设计前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-08",
+      "title": "设备与外部接口",
+      "existing_decisions": "D14",
+      "parameters": "具体设备/CDS/代理/协议/许可、10/15数量单位、离线容量和回执",
+      "owner_roles": "QC/IT",
+      "gate": "真实设备连接及接口确认前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-09",
+      "title": "生产对象存储",
+      "existing_decisions": "D11",
+      "parameters": "产品/版本/支持、对象版本/锁定/删除、加密密钥、恢复及退出",
+      "owner_roles": "IT/QA",
+      "gate": "生产数据模型与存储准入前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-10",
+      "title": "保留与销毁",
+      "existing_decisions": "D09",
+      "parameters": "按记录类型的起算事件、期限、legal hold、批准销毁与审计保留",
+      "owner_roles": "QA/IT",
+      "gate": "归档/销毁功能设计前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-11",
+      "title": "恢复与连续性",
+      "existing_decisions": "D09",
+      "parameters": "RPO/RTO、故障域、备份/恢复频次、演练范围和停机替代流程",
+      "owner_roles": "业务Owner/QA/IT",
+      "gate": "恢复设计前和质量使用前实测",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-12",
+      "title": "时间源与容差",
+      "existing_decisions": "D09",
+      "parameters": "时间源、时区/精度、允许漂移、告警/阻断、超窗与补录",
+      "owner_roles": "IT/QC/QA",
+      "gate": "时间敏感流程及采集设计前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-13",
+      "title": "负载与性能边界",
+      "existing_decisions": "D02",
+      "parameters": "保留20并发/3秒/20秒原要求，定义事务混合、数据量、网络、报告复杂度、端到端计时",
+      "owner_roles": "QC/IT",
+      "gate": "性能接受标准冻结前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-14",
+      "title": "浏览器与多语言",
+      "existing_decisions": "D03/D08",
+      "parameters": "IE差异处理、支持终端/浏览器版本、语言菜单/消息/报告范围",
+      "owner_roles": "QC/IT/QA",
+      "gate": "前端适用环境与范围冻结前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-15",
+      "title": "真实人员与验证证据",
+      "existing_decisions": "D17/D19",
+      "parameters": "非作者评审人、QA/QC/IT职责、第三方协议、受控证据库/保存与身份核验",
+      "owner_roles": "Owner/QA",
+      "gate": "规范基线发布及正式验证前分别落实",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-16",
+      "title": "组件和交付准入",
+      "existing_decisions": "D08/D18",
+      "parameters": "精确依赖版本、报告/结构式组件、许可证/支持、供应商批准、源码/培训/交付签收",
+      "owner_roles": "研发/IT/QA",
+      "gate": "工程及专项能力准入前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    },
+    {
+      "id": "PAR-17",
+      "title": "网络与个人信息边界",
+      "existing_decisions": "D09/D10",
+      "parameters": "等保定级评估、网络边界、个人信息处理依据、受托/对外/跨境与Agent数据范围",
+      "owner_roles": "IT/法务或隐私责任人/QA",
+      "gate": "相关数据流及生产使用前",
+      "status": "PENDING_COMPANY_DECISION",
+      "approved_value": null,
+      "approval_ref": null
+    }
+  ]
+}

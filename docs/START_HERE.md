@@ -2,6 +2,8 @@
 
 当前唯一工程入口：[团队规范V1.1](standards/README.md)及[FRAMEWORK-V1整体基线](standards/FRAMEWORK_BASELINE.md)。Owner已认可主栈、控制扩展和小团队规划；正式批准/实现/发布状态分别管理，不把PR里的规范当已合main或已通过验证。
 
+本轮先补读[验证准备与开发约束](standards/validation-readiness/README.md)：开发者按28条DEV规则实现，Agent按[执行流程](standards/validation-readiness/AGENT_WORKFLOW.md)领取有界任务，Owner/QC/QA按[17类参数](standards/validation-readiness/DECISIONS.md)确认相关设计。法规条号和适用性纠偏均保留来源，不更改原报告与原URS。
+
 研发先读[TECH-V1](standards/TECH_STACK.md)、[前端](standards/FRONTEND.md)/[后端](standards/BACKEND_DATA.md)、[团队开发手册](delivery/TEAM_PLAYBOOK.md)及[前四周任务](delivery/FIRST_FOUR_WEEKS.md)。QC/QA/第三方先读[法规范围](standards/REGULATORY_SCOPE.md)、[控制登记](standards/controls.json)和[证据规则](standards/VALIDATION_EVIDENCE.md)。
 
 领取任务时引用[原URS追踪](requirements/README.md)、[功能表范围](requirements/FUNCTION_SCOPE.md)、[依赖任务表](delivery/backlog.json)，使用[任务模板](templates/TASK_BRIEF.md)。完成时按[CONTRIBUTING](../CONTRIBUTING.md)提供正向/拒绝测试、版本、证据和[交接](templates/HANDOFF.md)。

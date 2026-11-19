@@ -15,6 +15,8 @@
 | 扩展控制3 | [恢复/运行/退役](RECOVERY_OPERATIONS.md)、[验证证据](VALIDATION_EVIDENCE.md) |
 | 范围与登记 | [28项功能映射](../requirements/FUNCTION_SCOPE.md)、[14控制/8技术登记](controls.json)、[技术增补准入](EXTENSIONS.md)、[待决事项](../requirements/decisions.md) |
 | 团队执行 | [开发手册](../delivery/TEAM_PLAYBOOK.md)、[前四周](../delivery/FIRST_FOUR_WEEKS.md)、[任务依赖](../delivery/backlog.json)、[路线/周期](../delivery/ROADMAP.md) |
+| 验证准备增补 | [统一入口](validation-readiness/README.md)、[28条开发约束](validation-readiness/DEVELOPMENT_CONSTRAINTS.md)、[阶段门槛](validation-readiness/GATES.md)、[法规纠偏](validation-readiness/REGULATORY_BASIS.md) |
+| 增补执行与待决 | [Agent流程](validation-readiness/AGENT_WORKFLOW.md)、[17类参数](validation-readiness/DECISIONS.md)、[工程证据契约](../validation/ENGINEERING_EVIDENCE.md)、[开发影响记录](../templates/DEVELOPMENT_CHANGE.md) |
 | 模板与追溯 | [任务](../templates/TASK_BRIEF.md)、[交接](../templates/HANDOFF.md)、[证据](../templates/VALIDATION_EVIDENCE.json)、[发布清单](../templates/RELEASE_MANIFEST.json) |
 | 来源与变更 | [技术依据](SOURCES.md)、[输入登记](../sources/PLANNING_INPUTS.md)、[TECH-V1变更](../governance/changes/CHANGE-20261116-TECH-V1.md)、[FRAMEWORK-V1变更](../governance/changes/CHANGE-20261116-FRAMEWORK-V1.md) |
 
@@ -31,8 +33,9 @@ python3 scripts/governance/verify_sources.py
 python3 scripts/governance/check_repository.py
 python3 scripts/governance/check_technical_baseline.py
 python3 scripts/governance/check_framework.py
+python3 scripts/governance/render_development_constraints.py --check
 python3 scripts/governance/estimate_delivery.py
 python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 ```
 
-只验证原件/索引/规范/规划结构，不验证LIMS业务、视觉像素、安全、性能、恢复或GMP符合性。原185条RTM仍默认NOT_IMPLEMENTED/NOT_RUN。模板、计划和源码审阅不能替代实际证据与QA放行。
+只验证原件/索引/规范/规划结构、规则便读版同步及离线工程证据引用一致性，不验证LIMS业务、视觉像素、安全、性能、恢复或GMP符合性。原185条RTM仍默认NOT_IMPLEMENTED/NOT_RUN。模板、计划和源码审阅不能替代实际证据与QA放行。
