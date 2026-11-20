@@ -8,6 +8,8 @@
 
 2026-11-19 增补：[验证准备与28条开发约束](docs/standards/validation-readiness/README.md)、[Agent执行流程](docs/standards/validation-readiness/AGENT_WORKFLOW.md)、[17类企业待决参数](docs/standards/validation-readiness/DECISIONS.md)。依据两份技术报告与现行官方来源细化现有规范，见[采纳与纠偏记录](docs/review/2026-11-19-reports-adoption.md)。本增补随PR #1审查，不代表应用实现、验证或QA批准。
 
+2026-11-20 增补：[GAMP 生命周期体系](docs/standards/sdlc-validation/README.md)、[11 份附件来源与纠偏](docs/standards/sdlc-validation/SOURCE_ASSESSMENT.md)、[项目 SIA / VP / 风险规划](docs/validation/lifecycle/README.md)、[8 类资料模板](docs/templates/validation/README.md)、[小团队执行教程](docs/validation/lifecycle/TEAM_EXECUTION.md)。12 条 LC 细化开发、测试、代码、配置、变更和持续运行，继续映射原 DEV 与 URS；初始 18 风险及 18 验证场景均是未批准/未执行规划。
+
 Owner已认可主技术路线、14项控制增补及2–3人分期方法。PR审查与合并、QA正式批准、依赖精确锁定、生产存储准入、应用实现和验证仍是独立门禁；不由规划认可自动完成。
 
 采用Next/React/TypeScript/AntD、TanStack Query、nuqs、Recharts；FastAPI/SQLAlchemy 2.0/Alembic/PostgreSQL；Celery/Redis；S3接口；Compose/Nginx/GitHub Actions。独立LIMS，HBOS只入口/受控SSO，不共享业务库、质量权限或发布节奏。
@@ -37,10 +39,11 @@ python3 scripts/governance/check_repository.py
 python3 scripts/governance/check_technical_baseline.py
 python3 scripts/governance/check_framework.py
 python3 scripts/governance/render_development_constraints.py --check
+python3 scripts/governance/check_lifecycle.py
 python3 scripts/governance/estimate_delivery.py
 python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 ```
 
 治理通过不等于业务或GMP通过。正式测试仍NOT_RUN；不新增空成功Job。原始证据/正式批准存公司受控系统，公共仓库只存合成样例和脱敏引用。
 
-先核实[GitHub保护与人员清单](docs/governance/github-settings-checklist.md)，不把CODEOWNERS文件当成保护已生效。参阅[CONTRIBUTING](CONTRIBUTING.md)、[AGENTS](AGENTS.md)、[输入来源](docs/sources/PLANNING_INPUTS.md)、[FRAMEWORK-V1变更](docs/governance/changes/CHANGE-20261116-FRAMEWORK-V1.md)和[本轮增补变更](docs/governance/changes/CHANGE-20261119-VALIDATION-READINESS.md)。
+先核实[GitHub保护与人员清单](docs/governance/github-settings-checklist.md)，不把CODEOWNERS文件当成保护已生效。参阅[CONTRIBUTING](CONTRIBUTING.md)、[AGENTS](AGENTS.md)、[输入来源](docs/sources/PLANNING_INPUTS.md)、[FRAMEWORK-V1变更](docs/governance/changes/CHANGE-20261116-FRAMEWORK-V1.md)、[验证准备约束增补](docs/governance/changes/CHANGE-20261119-VALIDATION-READINESS.md)、[本轮生命周期增补](docs/governance/changes/CHANGE-20261120-SDLC-CSV.md)和[本轮技术审查记录](docs/review/2026-11-20-sdlc-validation-review.md)。

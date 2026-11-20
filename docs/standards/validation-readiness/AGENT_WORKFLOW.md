@@ -6,6 +6,8 @@
 
 任务必须具体到一个可交付结果，写出 base/head、允许改动的目录、URS/控制/DEV 规则、正常和拒绝接受条件、合成数据范围、依赖及停止条件。允许路径限定任务边界，不是要求绕过环境权限。记录阻塞而不是凭空完成企业决定。
 
+同时读取 [LC 生命周期规则](../sdlc-validation/LIFECYCLE_STANDARD.md)中适用章节；引用项目 SIA/VP、风险、领域 FS/DS/CS 及验证办法。参考[逐工作项教程](../../validation/lifecycle/TEAM_EXECUTION.md)，有变化更新受影响资料，没有变化引用已有版本并说明理由。来源有误译或缺页时按[来源勘误](../sdlc-validation/SOURCE_ASSESSMENT.md)采用官方核实含义。
+
 ## 实现时
 
 1. 先写 API/事件契约、数据及状态/版本约束，再实现最小纵向功能。

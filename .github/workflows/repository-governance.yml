@@ -24,6 +24,8 @@ jobs:
         run: python3 scripts/governance/check_framework.py
       - name: Check development constraint schema and human document synchronization
         run: python3 scripts/governance/render_development_constraints.py --check
+      - name: Check lifecycle planning references without implying validation or approval
+        run: python3 scripts/governance/check_lifecycle.py
       - name: Reproduce planning estimates without treating them as guarantees
         run: python3 scripts/governance/estimate_delivery.py
       - name: Test governance rejection paths

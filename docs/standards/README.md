@@ -17,6 +17,8 @@
 | 团队执行 | [开发手册](../delivery/TEAM_PLAYBOOK.md)、[前四周](../delivery/FIRST_FOUR_WEEKS.md)、[任务依赖](../delivery/backlog.json)、[路线/周期](../delivery/ROADMAP.md) |
 | 验证准备增补 | [统一入口](validation-readiness/README.md)、[28条开发约束](validation-readiness/DEVELOPMENT_CONSTRAINTS.md)、[阶段门槛](validation-readiness/GATES.md)、[法规纠偏](validation-readiness/REGULATORY_BASIS.md) |
 | 增补执行与待决 | [Agent流程](validation-readiness/AGENT_WORKFLOW.md)、[17类参数](validation-readiness/DECISIONS.md)、[工程证据契约](../validation/ENGINEERING_EVIDENCE.md)、[开发影响记录](../templates/DEVELOPMENT_CHANGE.md) |
+| 自研生命周期 | [统一入口](sdlc-validation/README.md)、[12 条 LC 规则](sdlc-validation/LIFECYCLE_STANDARD.md)、[测试策略](sdlc-validation/TEST_STRATEGY.md)、[11 份来源及纠偏](sdlc-validation/SOURCE_ASSESSMENT.md) |
+| 验证资料骨架 | [SIA / VP / 初始风险](../validation/lifecycle/README.md)、[8 类资料模板](../templates/validation/README.md)、[迭代执行教程](../validation/lifecycle/TEAM_EXECUTION.md) |
 | 模板与追溯 | [任务](../templates/TASK_BRIEF.md)、[交接](../templates/HANDOFF.md)、[证据](../templates/VALIDATION_EVIDENCE.json)、[发布清单](../templates/RELEASE_MANIFEST.json) |
 | 来源与变更 | [技术依据](SOURCES.md)、[输入登记](../sources/PLANNING_INPUTS.md)、[TECH-V1变更](../governance/changes/CHANGE-20261116-TECH-V1.md)、[FRAMEWORK-V1变更](../governance/changes/CHANGE-20261116-FRAMEWORK-V1.md) |
 
@@ -34,6 +36,7 @@ python3 scripts/governance/check_repository.py
 python3 scripts/governance/check_technical_baseline.py
 python3 scripts/governance/check_framework.py
 python3 scripts/governance/render_development_constraints.py --check
+python3 scripts/governance/check_lifecycle.py
 python3 scripts/governance/estimate_delivery.py
 python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 ```

@@ -7,6 +7,7 @@ governance:
 	python3 scripts/governance/check_technical_baseline.py
 	python3 scripts/governance/check_framework.py
 	python3 scripts/governance/render_development_constraints.py --check
+	python3 scripts/governance/check_lifecycle.py
 	python3 scripts/governance/estimate_delivery.py
 	python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
 

@@ -2,6 +2,8 @@
 
 执行[整体基线](docs/standards/FRAMEWORK_BASELINE.md)和[团队手册](docs/delivery/TEAM_PLAYBOOK.md)。规范已收敛，不重复选主栈；正式质量规则、版本准入及未决范围仍需审批。
 
+开发、测试、代码和变更同时遵守 [LC 生命周期规则](docs/standards/sdlc-validation/LIFECYCLE_STANDARD.md)。每个任务引用适用风险/FS/DS/CS、接受条件和实际证据，按[迭代教程](docs/validation/lifecycle/TEAM_EXECUTION.md)更新受影响资料；已批准候选/运行版本变更走受控影响评估。
+
 ## 每次提交
 
 使用[任务模板](docs/templates/TASK_BRIEF.md)，写明Issue/URS/功能/C控制、单个业务结果、路径、合同、样例、依赖和禁止事项。从最新获准main建立feat/<issue>-<domain>等短分支；不建每人永久分支、不强推、不覆盖其他worktree。

@@ -4,6 +4,8 @@
 
 本轮先补读[验证准备与开发约束](standards/validation-readiness/README.md)：开发者按28条DEV规则实现，Agent按[执行流程](standards/validation-readiness/AGENT_WORKFLOW.md)领取有界任务，Owner/QC/QA按[17类参数](standards/validation-readiness/DECISIONS.md)确认相关设计。法规条号和适用性纠偏均保留来源，不更改原报告与原URS。
 
+开发与验证怎样配合，统一从 [GAMP 生命周期实施层](standards/sdlc-validation/README.md)进入。先用 [SIA/VP/风险草案](validation/lifecycle/README.md)确定本次用途和风险，再用[规格/测试/变更等模板](templates/validation/README.md)逐项落实。2–3 人按[工作项教程](validation/lifecycle/TEAM_EXECUTION.md)维护受影响内容，无需每个 PR 复制整本验证文件。
+
 研发先读[TECH-V1](standards/TECH_STACK.md)、[前端](standards/FRONTEND.md)/[后端](standards/BACKEND_DATA.md)、[团队开发手册](delivery/TEAM_PLAYBOOK.md)及[前四周任务](delivery/FIRST_FOUR_WEEKS.md)。QC/QA/第三方先读[法规范围](standards/REGULATORY_SCOPE.md)、[控制登记](standards/controls.json)和[证据规则](standards/VALIDATION_EVIDENCE.md)。
 
 领取任务时引用[原URS追踪](requirements/README.md)、[功能表范围](requirements/FUNCTION_SCOPE.md)、[依赖任务表](delivery/backlog.json)，使用[任务模板](templates/TASK_BRIEF.md)。完成时按[CONTRIBUTING](../CONTRIBUTING.md)提供正向/拒绝测试、版本、证据和[交接](templates/HANDOFF.md)。

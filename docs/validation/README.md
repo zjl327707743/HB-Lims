@@ -2,6 +2,8 @@
 
 当前状态：NOT_RUN（正式业务/现场验证）。现有治理CI不是GMP验证，原型采用记录不是本厂生产放行。
 
+当前项目骨架见 [SIA / VP / 初始风险与资料索引](lifecycle/README.md)。[LC 生命周期规则](../standards/sdlc-validation/LIFECYCLE_STANDARD.md)与[测试策略](../standards/sdlc-validation/TEST_STRATEGY.md)规定实施方式；[8 类模板](../templates/validation/README.md)用于编制具体文件。模板和规划均未执行/未批准。
+
 按风险和适用性由QA批准验证策略，保留URS→FS/DS→风险→用例→结果→偏差关闭的RTM。URS-2107–2109中提及的计划、设计确认、FAT、IQ/OQ/PQ、总结、运行维护及知识转移按实际实施模式裁剪并批准，不能仅生成空模板后宣布通过。
 
 ## 必须覆盖的验收族
