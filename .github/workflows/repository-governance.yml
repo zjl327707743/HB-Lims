@@ -1,0 +1,57 @@
+name: Repository governance
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: repository-governance-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  repository-governance:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check structure and generate complete requirement traceability matrix
+        run: python3 scripts/governance/check_repository.py
+      - name: Check technical baseline and preserved frontend requirements
+        run: python3 scripts/governance/check_technical_baseline.py
+      - name: Check accepted framework, scope snapshots and task dependencies
+        run: python3 scripts/governance/check_framework.py
+      - name: Check development constraint schema and human document synchronization
+        run: python3 scripts/governance/render_development_constraints.py --check
+      - name: Check lifecycle planning references without implying validation or approval
+        run: python3 scripts/governance/check_lifecycle.py
+      - name: Reproduce planning estimates without treating them as guarantees
+        run: python3 scripts/governance/estimate_delivery.py
+      - name: Test governance rejection paths
+        run: python3 -m unittest discover -s scripts/governance -p 'test_*.py' -v
+      - name: Preserve reviewable foundation and governance evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: foundation-review-${{ github.run_id }}
+          retention-days: 1
+          include-hidden-files: true
+          if-no-files-found: error
+          path: |
+            artifacts/governance/
+            docs/
+            apps/
+            packages/
+            tests/
+            deploy/
+            scripts/governance/
+            .github/
+            README.md
+            AGENTS.md
+            CONTRIBUTING.md
+            SECURITY.md
+            Makefile
+            .gitignore
+            .gitattributes
+            .editorconfig

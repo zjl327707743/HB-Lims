@@ -1,0 +1,14 @@
+{
+  "baseline_commit": "b25ef012955b35ba894408316f80f29652f4d4f2",
+  "review_date": "2026-11-16",
+  "urs_path": "docs/六车间QC实验室信息管理系统用户需求说明.docx",
+  "expected_unique_requirements": 185,
+  "prototype_html_sha256": "8571548ef60bfa9d5d54508beea4b7713787929d7fa22601b368cf4f15860515",
+  "frontend_current_path": "docs/LIMS独立前端开发规范.md",
+  "frontend_change_record": "docs/governance/changes/CHANGE-20261116-TECH-V1.md",
+  "files": [
+    {"path": "docs/六车间QC实验室信息管理系统用户需求说明.docx", "git_blob_sha": "ce31845d7fe0c77146c9f13962a87ed3585edc45", "sha256": "bdd703d3aecc7e8d5b9e2c2a4b1131c3e02890f623c15a753f9ca4289a47d154"},
+    {"path": "LIMS_V3.1_已采用交付包.zip", "git_blob_sha": "92ffe7f1cfd967bd4222729d053f8997d8013f5b", "sha256": "71c8fc0d3f101905ec560311c9afb8ef8cd4f17058c72d8f78ae9c61456fcf6b"},
+    {"path": "docs/archive/frontend/LIMS独立前端开发规范.v1.20261116.md", "original_path": "docs/LIMS独立前端开发规范.md", "git_blob_sha": "17eda331335a73fe8e0fea9b8ad49eb5ae68cde2", "sha256": "91d5af53ec125737d3767d49f91623bc13fb3b615ad323a157d735a74b58028b"}
+  ]
+}

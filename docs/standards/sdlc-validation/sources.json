@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "id": "SOURCES-20261120",
+  "assessed_on": "2026-11-20",
+  "timezone": "Asia/Shanghai",
+  "scope": "HB-Lims前期规范的来源身份、现行性、效力、适用性、限定阅读覆盖与原创采纳判断；不代表应用验证或企业质量使用批准。",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "EU GMP Annex 11 Computerised Systems",
+      "file_name": "1、欧盟 PICS GMP附录11 计算机化系统 中英文版.pdf",
+      "sha256": "8ad235b1cabcec5a8f4fc48bdc6ef977d7633efa7c2c432cae345f12943f6081",
+      "legal_nature": "CONDITIONAL_MARKET_GMP_REQUIREMENT",
+      "applicability": "先确定欧盟人用药GMP、厂区、活动及记录用途；其他范围只能经批准作参考。",
+      "verified_identity": "原页版本为2011年1月修订、2011-06-30实施的EU Annex11；EC当前目录和官方PDF核验。",
+      "version_status": "EC当前目录仍列2011版；2025修订咨询已关闭且公开材料仍标草案。",
+      "coverage_summary": "扫描双语材料全部8页按原页阅读并视觉核验；§1–17和词汇表完整，版本与范围另核官方原文。",
+      "limitations": [
+        "非欧盟所有行业通用法律；2025草案不能当已生效条文。"
+      ],
+      "official_urls": [
+        "https://health.ec.europa.eu/medicinal-products/eudralex/eudralex-volume-4_en",
+        "https://health.ec.europa.eu/document/download/8d305550-dd22-4dad-8463-2ddb4a1345f1_en?filename=annex11_01-2011_en.pdf",
+        "https://health.ec.europa.eu/consultations/stakeholders-consultation-eudralex-volume-4-good-manufacturing-practice-guidelines-chapter-4-annex_en"
+      ],
+      "adopted_topics": [
+        "LC-001 系统边界与GMP功能清单",
+        "LC-003 生命周期需求追溯",
+        "LC-006 测试工具/环境及证据适用性",
+        "DEV-009 关键人工输入准确性",
+        "LC-008 供应商责任",
+        "LC-011/012 周期评价、业务连续性与归档"
+      ]
+    },
+    {
+      "id": "S02",
+      "title": "WHO TRS 1019 Annex 3 Appendix 5 Validation of computerized systems",
+      "file_name": "2、WHO TRS 1019 Annex03 Appendix5 计算机化系统验证  中英文对照.pdf",
+      "sha256": "ac9a1daa9a6851f78838aa2b5e5c3a67fafb660958bd16a9c4a166ab6993785c",
+      "legal_nature": "INTERNATIONAL_GUIDANCE_CONDITIONAL_ADOPTION",
+      "applicability": "WHO GMP指导；市场、WHO项目/预认证或企业正式承诺决定具体约束。",
+      "verified_identity": "WHO官方页面及Annex3原文核实TRS1019/2019 Appendix5；上传件为不完整双语节选。",
+      "version_status": "WHO现行目录仍列2019验证指南；上传节选不完整。",
+      "coverage_summary": "扫描双语材料全部已提供16页按原页阅读和视觉核验，末页止§8.4。另从WHO官方原文补读§8.5–8.7、§9–14及相关参考信息；不将上传节选称为全文。",
+      "limitations": [
+        "2021数据完整性指南是相关补充，不据此宣称2019验证指南失效。"
+      ],
+      "official_urls": [
+        "https://www.who.int/publications/m/item/trs1019-annex3/",
+        "https://cdn.who.int/media/docs/default-source/medicines/norms-and-standards/guidelines/production/trs1019-annex3-gmp-validation.pdf?download=true&sfvrsn=9440a5c_0",
+        "https://www.who.int/teams/health-product-and-policy-standards/standards-and-specifications/norms-and-standards-for-pharmaceuticals/guidelines/quality-assurance"
+      ],
+      "adopted_topics": [
+        "LC-004 自研编程标准、代码审查与敏捷",
+        "LC-006 验证阶段分配及功能等效环境",
+        "LC-010 SOP、培训与用户UAT",
+        "LC-009 自动更新受控",
+        "LC-011/012 运行、迁移与退役"
+      ]
+    },
+    {
+      "id": "S03",
+      "title": "GMP指南：计算机化系统验证 内部讨论稿",
+      "file_name": "3、GMP指南：计算机化系统验证（CSV） 20220720.pdf",
+      "sha256": "8dabb069341fd823d2b929df0162617ff723ac570e7c79ee39c4244d552fe8fc",
+      "legal_nature": "UNVERIFIED_DRAFT_REFERENCE",
+      "applicability": "内部讨论材料；只能提炼并交叉核验，不作为法规或完整正式出版物引用。",
+      "verified_identity": "仅确认上传件为带内部讨论稿标识的CSV参考材料；未确认正式发布机关、批准版本或等同2023正式出版定稿。",
+      "version_status": "正式第二版丛书2023-04出版已有出版方原始报道，未建立上传稿与定稿一致性。",
+      "coverage_summary": "130/130页完整文本与章节覆盖台账；视觉核验38页，覆盖全部23个嵌图页；其余92页未宣称视觉完成。第104页上方缩略矩阵小字未逐格辨清。公共规范只保留通用原创释义。",
+      "limitations": [
+        "原文有内部讨论/保密标识，不复制至公共仓库。",
+        "2022文件名不是法规生效日期。",
+        "38页视觉核验含全部23个嵌图页；不将全文提取等同全页视觉认证。"
+      ],
+      "official_urls": [
+        "https://www.cnpharm.com/c/2023-04-27/1017608.shtml"
+      ],
+      "adopted_topics": [
+        "通用工程方法经公开来源交叉核验后原创表达",
+        "LC-003 可合并但可追溯的设计内容",
+        "LC-004/006 分层测试和非作者代码审查",
+        "LC-008 委托责任与证据复用",
+        "LC-011 运行回顾及整改闭环"
+      ]
+    },
+    {
+      "id": "S04",
+      "title": "药品生产质量管理规范（2010年修订）附录：计算机化系统",
+      "file_name": "4、GMP 附录10：计算机化系统.docx",
+      "sha256": "864559bd648bc9be7c73b91773aeda72617588bac5340a6ceb852bf6c6a8d247",
+      "legal_nature": "CHINA_GMP_APPLICABLE_REQUIREMENT",
+      "applicability": "中国药品生产质量管理过程中使用的计算机化系统。",
+      "verified_identity": "官方公告身份为2015年第54号公告附件1《计算机化系统》；政府公开24条与上传文本逐条比对未见实质差异。",
+      "version_status": "官方公告及政府全文核验；24条正文与上传文本逐条比对未见实质差异。",
+      "coverage_summary": "全部32段原生内容、24条与政府公开全文逐条核对；3/3个渲染页视觉检查。原生文本完整，转换渲染存在部分字不显。",
+      "limitations": [
+        "附录10不是本公告正式附件编号。",
+        "NMPA直链本轮不可读；官方公告转载和政府全文索引成功获取。",
+        "本次转换渲染第1页第3条、第2页第19条（二）有部分字不显；不得据此判定原生条款缺失，也不直接将该渲染件作受控培训原件。"
+      ],
+      "official_urls": [
+        "https://www.nmpa.gov.cn/directory/web/nmpa/xxgk/ggtg/qtggtg/20150526120001509.html",
+        "https://www.ccfdie.org/zryyxxw/zxdt/webinfo/2017/01/1485585739044109.htm",
+        "https://amr.hainan.gov.cn/himpa/yprz/jchc/ypgmpxcjc/201710/t20171016_460798.html"
+      ],
+      "adopted_topics": [
+        "LC-001 系统清单与关键系统说明",
+        "LC-002 风险相称验证和基础架构确认",
+        "DEV-009 人工关键数据复核与受控更正",
+        "LC-008 供应商与委托责任",
+        "LC-009/011 变更与事件处理",
+        "LC-012 迁移保值保义及保留"
+      ]
+    },
+    {
+      "id": "S05",
+      "title": "ISPE GAMP 5: A Risk-Based Approach to Compliant GxP Computerized Systems, Second Edition",
+      "file_name": "5、IPSE 第二版GAMP5-中文版.pdf.pdf",
+      "sha256": "68790567263b08dce75e401e6f516acc100cbd22d1ad18371f5bf3a510f3de72",
+      "legal_nature": "INDUSTRY_GOOD_PRACTICE",
+      "applicability": "GxP计算机化系统风险相称的良好实践；不能替代法规和企业质量责任。",
+      "verified_identity": "官方出版页核实ISPE GAMP5第二版于2022年7月出版；上传件标第二版及2022版权，未确认官方授权翻译或逐字一致。",
+      "version_status": "ISPE当前出版页仍为第二版；未核实上传中文本的官方翻译授权。",
+      "coverage_summary": "建立53个顶层目录及46个子条目定位；连续阅读完整相关章节物理PDF1–413、430–580，覆盖核心1–8、全部M、D1/D3–D9/D11、全部运行O、S1–S4/S6及撤销说明。另定向阅读414–418、581–582、593–596。实际视觉核验20页；未读419–429、583–592、597–614，不宣称全614页深审。",
+      "limitations": [
+        "未确认中文翻译者或官方翻译授权；文件名IPSE与机构ISPE不一致。",
+        "官方英文404页与上传中文614个物理页的分页差异不能单独证明完整或不完整。",
+        "PDF17关于方法线性的中文与PDF44及D8完整上下文相矛盾，疑漏否定；项目以官方说明和清晰上下文采用迭代增量方法。",
+        "SME、DoR、DoD、FAT等缩写出现不准确译词；PDF358个别表格标签在原图即乱码，不采用猜测译义。",
+        "D11 PDF432/438训练、调参和独立测试词混淆；当前仅区分Agent工具与产品ML，未来产品ML用途需核正式英文。",
+        "印刷页及页眉存在重复/误标；以物理PDF页和实际章节共同定位。",
+        "20个实际视觉核验页为1、44、192、208、212、213、262、350、351、355、357、358、361、373、399、401、403、432、536、565；其他已读内容不宣称视觉完成。",
+        "未读419–429、583–592、597–614；D10仅414–418，不能声称完整评估其实施建议。"
+      ],
+      "official_urls": [
+        "https://ispe.org/publications/guidance-documents/gamp-5-guide-2nd-edition/"
+      ],
+      "adopted_topics": [
+        "LC-001/002 预期用途与风险相称生命周期",
+        "LC-003 规格与双向追溯",
+        "LC-004/005 自研开发、代码与配置基线",
+        "LC-006 测试策略及证据适度复用",
+        "LC-008 供应商、工具与服务",
+        "LC-009/011/012 变更、运行与退役",
+        "LC-003/004 敏捷就绪与完成条件",
+        "LC-006 受控自动化与结构化探索测试",
+        "条件性未来能力：按例外审查和产品ML；当前不因此引入区块链或产品ML"
+      ]
+    },
+    {
+      "id": "S06",
+      "title": "GB/Z 42344-2023 制药机械（设备）计算机化系统验证指南",
+      "file_name": "6、GBZ 42344-2023 制药机械（设备）计算机化系统验证指南.pdf",
+      "sha256": "53521c85afe34035c0332be5cf4037c4675862a98d3ec49b6d16d016983ef073",
+      "legal_nature": "CHINA_GUIDANCE_TECHNICAL_DOCUMENT",
+      "applicability": "制药机械设备计算机化系统；独立LIMS可借鉴适用方法，不能机械全套采用。",
+      "verified_identity": "封面及SAMR平台核实GB/Z42344-2023、标题与指导性技术文件性质；发布2023-03-17、实施2023-10-01。",
+      "version_status": "SAMR标准平台标现行。",
+      "coverage_summary": "18/18页全部视觉核阅，包含封面、主体、表1–5、资料性附录A/B和参考文献。文本层编码失真，依页面图像读取。",
+      "limitations": [
+        "GB/Z不是职业卫生GBZ或强制性GB。",
+        "附录A/B资料性，RPN阈值和文档矩阵不得擅自固化。"
+      ],
+      "official_urls": [
+        "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=80D007823E620AA40FDFA300DF3DE655",
+        "https://std.samr.gov.cn/gb/search/gbDetailed?id=96O5dK9b4Vw%3D&mode=p"
+      ],
+      "adopted_topics": [
+        "按适用性借鉴设备计算机化验证方法",
+        "LC-002 风险、控制与剩余风险追踪",
+        "LC-006 测试前提、边界和失败证据",
+        "LC-010 培训有效性与使用准入",
+        "LC-012 文档、保存与退役"
+      ]
+    },
+    {
+      "id": "S07",
+      "title": "PIC/S PE 009-14 GMP Guide Annex 11 Computerised Systems",
+      "file_name": "7、PIC S GXP法规环境下的计算机化系统优良规范 英译中.pdf",
+      "sha256": "f9ca906066fdbf346587d7b5941cfdd07b8a9d08e81d75412ecfe220f5eda6d8",
+      "legal_nature": "CONDITIONAL_MARKET_OR_INSPECTION_GMP_REFERENCE",
+      "applicability": "按市场、监管机关采用及企业承诺判断，不是直接适用于全球所有软件的法律。",
+      "verified_identity": "上传封面与正文确定为PE009-14 Annex11（2018-07-01），文件名所指PI011不是实际身份。PI011-3为另一本2007检查员指导。",
+      "version_status": "当前总册PE009-18日期2026-09-24；Annex11关键控制点仍与所传版本相符。",
+      "coverage_summary": "8/8页全文文本阅读及8/8页视觉核验；核对封面、§1–17、词汇表及翻译风险，相关控制点与现行PIC/S Annex11原文复核。",
+      "limitations": [
+        "文件名误指PI011；正文是Annex11。",
+        "PDF6 §12.1错译、§8.2 batch release误译；PDF7 Business Continuity译义过窄。"
+      ],
+      "official_urls": [
+        "https://picscheme.org/en/publications",
+        "https://picscheme.org/docview/11333",
+        "https://picscheme.org/docview/3444"
+      ],
+      "adopted_topics": [
+        "LC-001 系统与GMP功能清单",
+        "LC-006 自动化测试工具与环境充分性",
+        "DEV-009 关键人工输入准确性",
+        "LC-008 第三方责任",
+        "LC-011 周期评价、事故与业务连续性",
+        "LC-012 可检索归档"
+      ]
+    },
+    {
+      "id": "S08",
+      "title": "AGIT Guidelines for the Validation of Computerised Systems",
+      "file_name": "8、AGIT计算机化系统验证指南V4.0 2025年4月29日发布 英文.pdf",
+      "sha256": "e1b82f8937cf74ff7fed692d3fbd07158f0caa67a3d71d2595aeb28f149dcbba",
+      "legal_nature": "SWISS_GLP_NON_BINDING_GUIDANCE",
+      "applicability": "解释OECD GLP原则，适用GLP环境；GMP QC系统只借鉴合适方法。",
+      "verified_identity": "AGIT官网同名官方英文核实V4.0、2025-04-29和GLP非约束性质；未作下载文件字节级一致性认证。",
+      "version_status": "官网当前提供相同V4.0及日期，官方PDF17页。",
+      "coverage_summary": "英文17/17页完整文本；视觉核验10/17页，包括范围、系统图、生命周期图、责任表、测试/放行与源代码等关键页；其余7页只作文本阅读。",
+      "limitations": [
+        "§1明确非法律约束；不能把GLP研究负责人/机构QA角色机械套到GMP。",
+        "官网文件上传时间2025-10-08不是文件发布日。",
+        "英文10个实际视觉核验页为1、3、4、8、9、10、11、12、13、15。"
+      ],
+      "official_urls": [
+        "https://www.anmeldestelle.admin.ch/de/agit",
+        "https://www.anmeldestelle.admin.ch/dam/en/sd-web/J4vLWuiKpaQY/2025_Good%20Laboratory%20Practice%20%28GLP%29%20AGIT%20%E2%80%93%20Validation%20of%20Computerised%20Systems%20V4.0.pdf"
+      ],
+      "adopted_topics": [
+        "条件借鉴GLP方法并映射GMP责任",
+        "LC-001 分系统验证与接口归属",
+        "LC-003/004 自研设计、敏捷和分层核查",
+        "LC-006 供应商证据适用性与用户环境",
+        "LC-008/010 企业与第三方职责",
+        "LC-012 接续维护与归档"
+      ]
+    },
+    {
+      "id": "S08-ZH",
+      "title": "AGIT V4.0 中文参考译本，含译者导言",
+      "file_name": "8、AGIT计算机化系统验证指南V4.0 ——豆包翻译中文参考译本.docx",
+      "sha256": "a3adc924405b8b8fdaa0dda55f32c67e552a80080cb19c142d95ea8c54d0c50a",
+      "legal_nature": "NON_AUTHORITATIVE_TRANSLATION",
+      "applicability": "阅读辅助；适用范围、术语和义务强度以官方英文为准。",
+      "verified_identity": "用户提供中文参考译本，含官方英文没有的译者导言；通过40组重点语义对照评估，非官方授权译文身份认证。",
+      "version_status": "正文译文比对由其他代理负责；新增导言不属AGIT。",
+      "coverage_summary": "原生正文196段、5表；186个非空提取块全部阅读，5表逐行核主要语义；40组重点英中对照。视觉核验8/18个转换渲染页，非全页视觉或专业翻译认证。",
+      "limitations": [
+        "导言国内GLP发布时间误读：原CFDA2017第34号令、2017-09-01实施，不是SAMR2021发布。",
+        "机器翻译不能独立生成规范义务。",
+        "转换渲染第13页验证计划表、第16页SOP表部分长单元格超出页面；原生表格文本完整。",
+        "中文8个实际视觉核验页为3、5、6、10、12、13、14、16。"
+      ],
+      "official_urls": [
+        "https://www.anmeldestelle.admin.ch/de/agit",
+        "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2023/art_2959b53d3b6a429e866c514a76a790db.html"
+      ],
+      "adopted_topics": [
+        "辅助阅读和术语对照；规范判断回官方英文",
+        "纠正译者新增国内GLP发布信息",
+        "与S08相同工程主题的有条件借鉴"
+      ]
+    },
+    {
+      "id": "S09",
+      "title": "EDQM Annex2 Validation of Complex Computerised Systems",
+      "file_name": "9、EDQM-复杂计算机化系统的验证-附录2-2018.pdf",
+      "sha256": "b6e41f18681b7a70e7814f18d029a4381fcaebc16a1711af8fcd925e7a370379",
+      "legal_nature": "GEON_OMCL_QUALITY_GUIDANCE",
+      "applicability": "GEON/OMCL质量体系语境；工厂LIMS按相关性借鉴，非通用法律。",
+      "verified_identity": "标题和主体对应EDQM复杂系统验证Annex2；上传本无版本封面且缺§7。官方当前R5身份已核，不能因此声明上传本为完整R5。",
+      "version_status": "官网当前目录仍链PA/PH/OMCL(08)88R5，2018-08生效；上传遗漏§7。",
+      "coverage_summary": "5/5页全文文本和5/5页视觉核验，并与官网R5相关条款比对；另补读官方§7归档，明确上传件未提供该节。",
+      "limitations": [
+        "官方4页含版本封面及§7；上传5页双语截止§6，不是完整现行译本。",
+        "官方封面Legislative basis为空；shall/must局限其适用体系。"
+      ],
+      "official_urls": [
+        "https://www.edqm.eu/en-US/quality-management-qm-documents",
+        "https://www.edqm.eu/documents/52006/287801/Validation%20of%20Computerised%20Systems%20Annex%202%20Validation%20of%20Complex%20Computerised%20Systems.pdf/b5e3a30b-68cf-e553-86d6-4a3e0c72a6de?download=true&t=1683282074711&version=1.1"
+      ],
+      "adopted_topics": [
+        "LC-003 需求版本与数据语义",
+        "LC-005/006 安装环境、独立预期和风险复测",
+        "LC-007 偏差与实际结果",
+        "LC-010 用户用途证明与正式使用决定",
+        "LC-012 补充官方§7规格/确认文档归档"
+      ]
+    },
+    {
+      "id": "S10",
+      "title": "21 CFR Part11 Electronic Records; Electronic Signatures",
+      "file_name": "10、21CFR part11：electronic record and electronic signature UFDA——电子记录；电子签名.pdf",
+      "sha256": "ae6015a01e6e688a3aa334f9ddfcb2a0ebcb66dd9c6cfe71176b9a76549ed242",
+      "legal_nature": "US_REGULATION_WHEN_SCOPE_MET",
+      "applicability": "FDA法规要求保留/提交的相关电子记录及电子签名；先识别predicate rules、记录用途和豁免。",
+      "verified_identity": "扉页明确Revised as of April1,2017；现行eCFR相应条款另核，属于有版本差异的双语参考材料。",
+      "version_status": "eCFR查询2026-11-20，页面Title21截至2026-11-18；上传为旧版本。",
+      "coverage_summary": "12/12页全文文本和12/12页视觉核验；适用范围、系统控制、签名显示/链接、签署组件和凭据控制回现行eCFR核验，记录旧版差异。",
+      "limitations": [
+        "漏现行§11.1(p)；§11.100(c)(1)旧纸递交及地址已于2023修订。",
+        "PDF7§11.10(f)是工作步骤/事件顺序检查，不是仅操作系统检查。",
+        "PDF1electronic form误译电子表格。",
+        "本次eCFR显示的是Title21的更新截至日期，不把它误写成Part11全部条文的修订日期。"
+      ],
+      "official_urls": [
+        "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11",
+        "https://www.fda.gov/industry/about-esg/appendix-g-letters-non-repudiation-agreement",
+        "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/part-11-electronic-records-electronic-signatures-scope-and-application"
+      ],
+      "adopted_topics": [
+        "DEV-001 电子记录/签名适用性",
+        "DEV-006/008 唯一身份与签名组件",
+        "DEV-009/010 原记录、审计和副本检索",
+        "LC-004/006 业务顺序、权限和来源控制",
+        "LC-010 人员能力、责任及质量使用程序"
+      ]
+    }
+  ]
+}

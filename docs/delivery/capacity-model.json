@@ -1,0 +1,32 @@
+{
+  "schema_version":1,
+  "status":"OWNER_ACCEPTED_PLANNING_ESTIMATE_NOT_COMMITMENT",
+  "source_workbook":"HB-Lims_扩展规范与2至3人路线_待审候选_20261116.xlsx",
+  "source_sheet":"容量模型",
+  "nominal_days_per_month":22,
+  "effective_fraction":0.7,
+  "pilot_effort_days":[240,320],
+  "pilot_external_wait_months":[1,2],
+  "full_external_wait_months":[2,4],
+  "work_packages":[
+    {"name":"需求/设计/法规与证据框架","min_days":70,"max_days":100},
+    {"name":"身份/权限/审计等共同基础","min_days":100,"max_days":140},
+    {"name":"样品工作流/LES主链","min_days":100,"max_days":150},
+    {"name":"报告/模板/计算","min_days":70,"max_days":110},
+    {"name":"资源管理","min_days":70,"max_days":100},
+    {"name":"完整OOS与QMS边界","min_days":70,"max_days":110},
+    {"name":"稳定性/留样/环境监测","min_days":100,"max_days":150},
+    {"name":"仪器与企业系统集成","min_days":120,"max_days":180},
+    {"name":"联合硬化/迁移/验证配合","min_days":50,"max_days":60}
+  ],
+  "team_sizes":[2,3],
+  "rounding":"ceil_to_month",
+  "full_includes_pilot":true,
+  "external_roles_included_in_headcount":false,
+  "uses_453_or_1023_as_days":false,
+  "pilot_scope":"one laboratory, one sample class, 3–5 representative methods, 2–3 reports, two source families; QC/QA approval still needed",
+  "technical_loop_weeks":{"2":[14,22],"3":[10,16]},
+  "reestimate_at":["week 4","first complete vertical slice","scope/personnel/interface changes"],
+  "confidence":"LOW_UNTIL_EMPIRICAL_RECALIBRATION",
+  "note":"Engineering days include design, coding, tests, documentation and rework. External partner development/validation availability must be scoped separately, not converted into imaginary speedup. Complex unresolved features may exceed the upper bound."
+}

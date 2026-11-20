@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "kind": "ENGINEERING_REFERENCES_NOT_QUALITY_APPROVAL",
+  "target": null,
+  "scope_id": null,
+  "designs": [],
+  "cases": [],
+  "executions": [],
+  "scope_decisions": []
+}

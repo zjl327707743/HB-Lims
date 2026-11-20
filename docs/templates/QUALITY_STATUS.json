@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "kind": "UNEXECUTED_QUALITY_STATUS_TEMPLATE",
+  "scope_id": null,
+  "target": {
+    "source_commit": null,
+    "artifact_digests": {},
+    "config_digest": null,
+    "environment_ref": null,
+    "method_template_versions": []
+  },
+  "implementation": {
+    "status": "NOT_IMPLEMENTED",
+    "implementation_refs": []
+  },
+  "engineering_test": {
+    "status": "NOT_RUN",
+    "execution_refs": []
+  },
+  "validation_execution": {
+    "status": "NOT_RUN",
+    "approved_protocol_ref": null,
+    "execution_refs": [],
+    "deviation_refs": []
+  },
+  "independent_review": {
+    "status": "NOT_REVIEWED",
+    "reviewer_id": null,
+    "reviewed_target": null,
+    "review_ref": null
+  },
+  "quality_release": {
+    "status": "NOT_GRANTED",
+    "qa_approver_id": null,
+    "approved_at": null,
+    "controlled_approval_ref": null,
+    "authorized_use": null,
+    "limitations": []
+  },
+  "note": "模板不是执行/批准记录。真实执行、复核和放行分别记入企业受控系统；机器结构检查不能认证批准真实性或自动推导状态。"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version":1,
+  "source_workbook":"HB-Lims_扩展规范与2至3人路线_待审候选_20261116.xlsx",
+  "source_sha256":"8b097f7d21d3d38d002b4c2c7ab97b721ef0ad81dd80f089d7ee95c1751c5da6",
+  "source_sheet":"控制增补候选",
+  "planning_status":"OWNER_ACCEPTED",
+  "implementation":"NOT_IMPLEMENTED",
+  "test_status":"NOT_RUN",
+  "qa_approval":"NOT_GRANTED",
+  "controls":[
+    {"id":"C01","source_row":5,"title":"法规适用与混合记录主本","priority":"P0·设计前","source_refs":"主体/厂区不同；URS总则、105、2107–2109；功能全表","document":"docs/standards/REGULATORY_SCOPE.md","owner_role":"QA/Owner","acceptance":"适用理由、版本、主本和QA批准可核查；未批准电子替代不得宣称已替代。"},
+    {"id":"C02","source_row":6,"title":"原始记录落库与受控草稿","priority":"P0·首个闭环","source_refs":"URS-601/604/610/616/622；清单7/26–28","document":"docs/standards/RECORDS_AUDIT.md","owner_role":"后端+QA","acceptance":"首次超限值、关闭/断线/刷新/重新采集仍可追溯；密码不入审计。"},
+    {"id":"C03","source_row":7,"title":"审计复核工作台","priority":"P0·试点前","source_refs":"URS-110/603/616/622/1901/2105；清单5/7/25","document":"docs/standards/RECORDS_AUDIT.md","owner_role":"质量域+QA","acceptance":"原值/更正/原因/重复测试可审阅；关键异常不漏列，复核与规则版本有证据。"},
+    {"id":"C04","source_row":8,"title":"受控配置与轻量流程定义","priority":"P0·首个闭环","source_refs":"URS-500/706/1201–1209/1306；清单7/19","document":"docs/standards/LES_CONFIG_CALC.md","owner_role":"技术负责人+QC/QA","acceptance":"新配置不改旧执行，未批准配置拒绝；配置变化也经过影响评估。"},
+    {"id":"C05","source_row":9,"title":"计量、公式与统计金标准","priority":"P0·首个闭环","source_refs":"URS-607/609/1201/1306/1508；清单11/25","document":"docs/standards/LES_CONFIG_CALC.md","owner_role":"后端+QC","acceptance":"确认样例及独立计算对照、单位/精度/缺失/边界/换版真实测试。"},
+    {"id":"C06","source_row":10,"title":"LES步骤与资源准入","priority":"P0·试点涉及即具备","source_refs":"URS-613/614/618/619/1000–1108；清单7依赖9–13/24/26/27","document":"docs/standards/LES_CONFIG_CALC.md","owner_role":"样品/资源域+QC","acceptance":"失效资质/校准/试剂阻断；外部失联按批准策略，不默认放行。"},
+    {"id":"C07","source_row":11,"title":"OOS/OOT与QMS唯一主记录","priority":"P0·范围阶段","source_refs":"URS-703/704；清单5模式一、21QMS","document":"docs/standards/LES_CONFIG_CALC.md","owner_role":"QC/QA+接口负责人","acceptance":"初始异常与复测/失效/采用依据保留；唯一结案权明确，未处置按规则阻断。"},
+    {"id":"C08","source_row":12,"title":"模板、报告与可读副本","priority":"P0·试点前","source_refs":"URS-602/603/624/800–804；清单7","document":"docs/standards/REPORTS_INTEGRATIONS.md","owner_role":"前端+报告域+QC","acceptance":"模板/字体/转换器/数据/签名版本对应，复杂模板实测；打印请求与物理回执分开。"},
+    {"id":"C09","source_row":13,"title":"仪器/CDS原始数据与适配器","priority":"P0·接口探测；逐项上线前","source_refs":"URS-604/620/621/1400–1402；清单24/26–28","document":"docs/standards/REPORTS_INTEGRATIONS.md","owner_role":"集成负责人+IT","acceptance":"重复/乱序/截断/断线/重处理有来源和缓冲；逐设备验证，动态原数据不只留摘要。"},
+    {"id":"C10","source_row":14,"title":"系统接口合同与受控导入","priority":"P0·接口设计","source_refs":"URS-201/805/806/1210/900–903；清单16–23","document":"docs/standards/REPORTS_INTEGRATIONS.md","owner_role":"接口负责人+业务Owner","acceptance":"撤权/失联/逆序/部分失败可对账；版本和主数据责任明确，不混同检验批准与整批放行。"},
+    {"id":"C11","source_row":15,"title":"稳定性/留样/环境监测时间链","priority":"P1·域上线前","source_refs":"URS-1600–1807；清单2/3/12/13","document":"docs/standards/LES_CONFIG_CALC.md","owner_role":"业务域负责人+QC","acceptance":"换版不搬历史时间点，漏采/超窗可见，数量和来源一致；重启不漏发。"},
+    {"id":"C12","source_row":16,"title":"一致恢复、归档迁移和退役","priority":"P0·试点前","source_refs":"URS-105/114/2107–2109；所有电子记录","document":"docs/standards/RECOVERY_OPERATIONS.md","owner_role":"IT+QA","acceptance":"隔离环境真实恢复PG/对象/审计/报告并核对批准RPO/RTO；不把5年容量当自动删除。"},
+    {"id":"C13","source_row":17,"title":"自动化证据资格与验证包","priority":"P0·从首个PR","source_refs":"URS-2107–2109；上传方案3.3节","document":"docs/standards/VALIDATION_EVIDENCE.md","owner_role":"第三方验证+QA+研发","acceptance":"协议、适用工具/环境、固定制品、原始输出、偏差/复测和独立审阅齐全，自动化不自动等于OQ。"},
+    {"id":"C14","source_row":18,"title":"小团队运维职责与质量边界","priority":"P0·试点前","source_refs":"URS-2001/2100–2109；清单8；独立LIMS要求","document":"docs/standards/RECOVERY_OPERATIONS.md","owner_role":"Owner/QA/IT","acceptance":"应急访问和生产变化有授权/独立审查，身份故障有控制；研发不得自批质量记录。"}
+  ],
+  "technology_extensions":[
+    {"id":"T01","source_row":5,"title":"OpenAPI类型合同","direction":"openapi-typescript + openapi-fetch","adoption":"ENGINEERING_DIRECTION_ACCEPTED_VERSION_PENDING","stage":"S1"},
+    {"id":"T02","source_row":6,"title":"公式与状态测试","direction":"pytest + Hypothesis；保留Vitest/Playwright","adoption":"ENGINEERING_DIRECTION_ACCEPTED_VERSION_PENDING","stage":"S1"},
+    {"id":"T03","source_row":7,"title":"Word报告流水线","direction":"docxtpl + 固定LibreOffice headless","adoption":"POC_QUALIFICATION_REQUIRED","stage":"S0/S3"},
+    {"id":"T04","source_row":8,"title":"恢复工具","direction":"pgBackRest + WAL归档","adoption":"POC_QUALIFICATION_REQUIRED","stage":"S1/S3"},
+    {"id":"T05","source_row":9,"title":"仪器边缘采集","direction":"pySerial + 文件适配器 + 有界持久缓冲","adoption":"DEVICE_DEPENDENT_QUALIFICATION_REQUIRED","stage":"S0/S3"},
+    {"id":"T06","source_row":10,"title":"可配置流程/LES执行","direction":"PG版本定义 + Pydantic + 受限状态机","adoption":"PRODUCT_CAPABILITY_ACCEPTED","stage":"S1/S2"},
+    {"id":"T07","source_row":11,"title":"轻量运行监测","direction":"结构化日志/健康检查/告警；OpenTelemetry按需","adoption":"BASIC_REQUIRED_EXTRA_PLATFORM_OPTIONAL","stage":"S1/S3"},
+    {"id":"T08","source_row":12,"title":"中文检索/高级编辑器","direction":"需求保留；组件和专项范围另行确认","adoption":"REQUIREMENT_RETAINED_COMPONENT_PENDING","stage":"S0/S5"}
+  ]
+}

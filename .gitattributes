@@ -1,0 +1,11 @@
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.docx -text
+*.zip -text
+# Frozen historical source bytes; active V2 is normal controlled UTF-8 Markdown.
+docs/archive/frontend/LIMS独立前端开发规范.v1.20261116.md -text

@@ -1,0 +1,28 @@
+name: Source baseline
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: source-baseline-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Verify original source files and prepare review evidence
+        run: python3 scripts/governance/verify_sources.py
+      - name: Retain source review evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: source-review-${{ github.run_id }}
+          path: artifacts/source-review/
+          retention-days: 1
+          if-no-files-found: error

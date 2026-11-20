@@ -1,0 +1,1279 @@
+{
+  "schema_version": 1,
+  "id": "LIFECYCLE-20261120",
+  "kind": "PLANNING_DRAFT_NOT_APPROVED",
+  "assessed_on": "2026-11-20",
+  "timezone": "Asia/Shanghai",
+  "baseline_source_head": "03647c79f883411ae5f857c609a6e6c560d2bd15",
+  "scope": "Initial project lifecycle, risk and verification planning; not executed validation, risk acceptance or a replacement for the 185-URS authority.",
+  "standard_ref": "docs/standards/sdlc-validation/LIFECYCLE_STANDARD.md",
+  "source_register_ref": "docs/standards/sdlc-validation/sources.json",
+  "implementation": "NOT_IMPLEMENTED",
+  "validation_execution": "NOT_RUN",
+  "qa_approval": "NOT_GRANTED",
+  "lc_ids": [
+    "LC-001",
+    "LC-002",
+    "LC-003",
+    "LC-004",
+    "LC-005",
+    "LC-006",
+    "LC-007",
+    "LC-008",
+    "LC-009",
+    "LC-010",
+    "LC-011",
+    "LC-012"
+  ],
+  "documents": [
+    {
+      "id": "DOC-SIA",
+      "kind": "PROJECT_DRAFT",
+      "path": "docs/validation/lifecycle/SYSTEM_IMPACT_ASSESSMENT.md",
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-001",
+        "LC-002"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-VP",
+      "kind": "PROJECT_DRAFT",
+      "path": "docs/validation/lifecycle/VALIDATION_PLAN.md",
+      "urs_ids": [
+        "URS-2107",
+        "URS-2108",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-002",
+        "LC-006",
+        "LC-010"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-SPEC",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/DOMAIN_SPECIFICATION.md",
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-005"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-RA",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/RISK_ASSESSMENT.md",
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-002"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-TEST",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/TEST_PROTOCOL_AND_REPORT.md",
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-006",
+        "LC-007"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-DEV",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/DEVIATION_AND_RETEST.md",
+      "urs_ids": [
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-007"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-CHANGE",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/CHANGE_AND_RELEASE.md",
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-005",
+        "LC-009"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-TOOLS",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/TOOL_SUPPLIER_ASSESSMENT.md",
+      "urs_ids": [
+        "URS-2107",
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-006",
+        "LC-008"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-VSR",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/VALIDATION_SUMMARY.md",
+      "urs_ids": [
+        "URS-2109"
+      ],
+      "lc_ids": [
+        "LC-010"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    },
+    {
+      "id": "DOC-OPS",
+      "kind": "UNEXECUTED_TEMPLATE",
+      "path": "docs/templates/validation/OPERATIONS_REVIEW_RETIREMENT.md",
+      "urs_ids": [
+        "URS-105",
+        "URS-2109",
+        "URS-2203",
+        "URS-2204"
+      ],
+      "lc_ids": [
+        "LC-011",
+        "LC-012"
+      ],
+      "status": "DRAFT_NOT_APPROVED",
+      "approval_ref": null
+    }
+  ],
+  "risks": [
+    {
+      "id": "RISK-001",
+      "title": "用途与验证边界遗漏",
+      "urs_ids": [
+        "URS-2107",
+        "URS-2108",
+        "URS-2109"
+      ],
+      "dev_ids": [
+        "DEV-001",
+        "DEV-005",
+        "DEV-027"
+      ],
+      "lc_ids": [
+        "LC-001",
+        "LC-002",
+        "LC-010"
+      ],
+      "failure_effect": "未定义主本、市场或忽略SSO/接口责任，导致不适合用途的系统被投入质量使用。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "质量用途和边界是所有后续控制的前提，当前尚无企业批准。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "完成SIA和记录主本/适用矩阵",
+        "接口及服务责任登记",
+        "按范围批准VP和使用决定"
+      ],
+      "scenario_ids": [
+        "VS-001"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-002",
+      "title": "身份与跨范围授权失效",
+      "urs_ids": [
+        "URS-108",
+        "URS-2005",
+        "URS-2103"
+      ],
+      "dev_ids": [
+        "DEV-006",
+        "DEV-007",
+        "DEV-016"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006"
+      ],
+      "failure_effect": "未经授权跨实验室或撤权后仍可查改记录、下载附件或批准结果，泄露数据或产生无权质量行为。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "直接影响记录真实性和授权决定，所有数据入口均可能受影响。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "后端统一对象授权与人员状态检查",
+        "用户隔离缓存及会话生命周期",
+        "权限变更和访问事件留痕"
+      ],
+      "scenario_ids": [
+        "VS-002"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-003",
+      "title": "样品身份与并发记录错配",
+      "urs_ids": [
+        "URS-203",
+        "URS-304",
+        "URS-601"
+      ],
+      "dev_ids": [
+        "DEV-009",
+        "DEV-011"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006"
+      ],
+      "failure_effect": "重复编号、丢失更新或样品/分装关系错误使结果归属错误批次或样品。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "样品标识和关系是检验结果可追溯性的基础。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "唯一性和关系约束",
+        "状态/版本比较与幂等",
+        "保留原始身份和受控更正"
+      ],
+      "scenario_ids": [
+        "VS-003"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-004",
+      "title": "首次结果/OOS被不当覆盖",
+      "urs_ids": [
+        "URS-610",
+        "URS-704",
+        "URS-616",
+        "URS-622"
+      ],
+      "dev_ids": [
+        "DEV-009",
+        "DEV-014"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-006",
+        "LC-007"
+      ],
+      "failure_effect": "删除首次超限或任取合格复测可能掩盖真实质量异常。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "直接影响结果判定和后续质量决定，原URS语义仍需受控澄清。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "保存首次原值和所有修订",
+        "更正有原因/权限/审阅",
+        "OOS调查与结果采用关系受控"
+      ],
+      "scenario_ids": [
+        "VS-004"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-005",
+      "title": "审计缺失或无法复核",
+      "urs_ids": [
+        "URS-110",
+        "URS-616",
+        "URS-2105"
+      ],
+      "dev_ids": [
+        "DEV-010",
+        "DEV-011"
+      ],
+      "lc_ids": [
+        "LC-004",
+        "LC-006",
+        "LC-011"
+      ],
+      "failure_effect": "关键更改无人员/原因/前后值或被删改，无法重建质量活动。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "影响数据完整性和调查，审计落库失败可能与业务成功分离。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "关键业务与审计同事务控制",
+        "最小权限/防篡改与可读导出",
+        "按风险复核并保留处置"
+      ],
+      "scenario_ids": [
+        "VS-005"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-006",
+      "title": "签名绑定错误或冒用",
+      "urs_ids": [
+        "URS-109",
+        "URS-606",
+        "URS-612",
+        "URS-615",
+        "URS-706",
+        "URS-802",
+        "URS-2106"
+      ],
+      "dev_ids": [
+        "DEV-008",
+        "DEV-006"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006"
+      ],
+      "failure_effect": "签署旧记录、同人违规复核或重放授权导致未真实批准的结果被认作已批准。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "签名承载质量责任及记录版本，存在不可由普通登录替代的控制。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "明确签名意义/适用性与人员规则",
+        "绑定精确记录版本",
+        "签署认证/防重放和结果查询"
+      ],
+      "scenario_ids": [
+        "VS-006"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-007",
+      "title": "方法、模板或计算版本错误",
+      "urs_ids": [
+        "URS-1201",
+        "URS-601"
+      ],
+      "dev_ids": [
+        "DEV-012",
+        "DEV-013"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-005",
+        "LC-006"
+      ],
+      "failure_effect": "错误单位、精度、修约、标准或方法换版改变结果含义并影响合格判断。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "算法错误可批量影响结果，方法/标准版本亦决定业务解释。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "受控方法/模板及实例绑定",
+        "精确数值和安全表达式范围",
+        "独立金标准与边界测试"
+      ],
+      "scenario_ids": [
+        "VS-007"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-008",
+      "title": "人员资格或仪器时效失效",
+      "urs_ids": [
+        "URS-618",
+        "URS-900",
+        "URS-901",
+        "URS-903",
+        "URS-1001",
+        "URS-1002"
+      ],
+      "dev_ids": [
+        "DEV-015",
+        "DEV-020"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-006",
+        "LC-011"
+      ],
+      "failure_effect": "未培训、资格过期或仪器失效仍完成检验，结果缺乏有效业务前提。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "直接影响检验能力和结果可信度，外部资格同步可能中断。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "关键动作实时检查适用资格/状态",
+        "资质来源和同步时间可追踪",
+        "失联/过期阻断或受控替代"
+      ],
+      "scenario_ids": [
+        "VS-008"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-009",
+      "title": "原始文件不完整或恶意输入",
+      "urs_ids": [
+        "URS-601",
+        "URS-604",
+        "URS-624"
+      ],
+      "dev_ids": [
+        "DEV-017",
+        "DEV-018"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006",
+        "LC-012"
+      ],
+      "failure_effect": "半文件、覆盖或恶意附件破坏原始记录、报告或系统边界。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "文件和元数据共同承载原始证据，不能只凭扩展名判断。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "入库状态与完整性核对",
+        "对象版本/授权与必要原始格式保留",
+        "上传和转换隔离"
+      ],
+      "scenario_ids": [
+        "VS-009"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-010",
+      "title": "接口丢失、重放或语义改变",
+      "urs_ids": [
+        "URS-604",
+        "URS-805",
+        "URS-903",
+        "URS-1401"
+      ],
+      "dev_ids": [
+        "DEV-019",
+        "DEV-020",
+        "DEV-026"
+      ],
+      "lc_ids": [
+        "LC-001",
+        "LC-003",
+        "LC-006"
+      ],
+      "failure_effect": "仪器或ERP/资格源数据丢失、重复、错单位或错样品，导致错误结果和状态。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "跨系统事务与外部设备无法仅用本地数据库事务保证。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "协议与来源/单位/身份校验",
+        "持久接收/幂等/对账/原始数据",
+        "明确回执和离线替代"
+      ],
+      "scenario_ids": [
+        "VS-010"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-011",
+      "title": "任务重投递产生重复业务效果",
+      "urs_ids": [
+        "URS-1103",
+        "URS-1201",
+        "URS-624"
+      ],
+      "dev_ids": [
+        "DEV-011",
+        "DEV-020"
+      ],
+      "lc_ids": [
+        "LC-004",
+        "LC-005",
+        "LC-006"
+      ],
+      "failure_effect": "队列重试或进程中断造成库存重复扣减、报告错发或质量状态重复推进。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "异步基础设施不提供业务层天然恰好一次效果。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "PG任务台账/Outbox",
+        "业务幂等键与状态比较",
+        "失败队列和定期对账"
+      ],
+      "scenario_ids": [
+        "VS-011"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-012",
+      "title": "报告或导出与批准记录不一致",
+      "urs_ids": [
+        "URS-624",
+        "URS-802",
+        "URS-804",
+        "URS-1901"
+      ],
+      "dev_ids": [
+        "DEV-008",
+        "DEV-012",
+        "DEV-017",
+        "DEV-022"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-005",
+        "LC-006"
+      ],
+      "failure_effect": "报告使用新模板/新结果覆盖原批准版本，或导出遗漏必要关联和签名。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "报告用于审核和对外解释，错误版本可掩盖实际批准内容。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "绑定报告与来源记录/模板版本",
+        "受控导出权限和打印轨迹",
+        "完整可读副本与必要历史关联"
+      ],
+      "scenario_ids": [
+        "VS-012"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-013",
+      "title": "时间来源或顺序不可信",
+      "urs_ids": [
+        "URS-616",
+        "URS-622",
+        "URS-2105"
+      ],
+      "dev_ids": [
+        "DEV-021",
+        "DEV-008",
+        "DEV-010"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-005",
+        "LC-006",
+        "LC-011"
+      ],
+      "failure_effect": "时间倒退/时区误解导致资格窗口、签名顺序或审计事件被错误解释。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "时间是可追溯性与期限控制的一部分，阈值尚待企业决定。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "统一可信服务端时间和时区表示",
+        "时钟监控及权限控制",
+        "超阈值质量动作策略"
+      ],
+      "scenario_ids": [
+        "VS-013"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-014",
+      "title": "备份存在但无法一致恢复",
+      "urs_ids": [
+        "URS-105",
+        "URS-114",
+        "URS-1502"
+      ],
+      "dev_ids": [
+        "DEV-022",
+        "DEV-023"
+      ],
+      "lc_ids": [
+        "LC-006",
+        "LC-011"
+      ],
+      "failure_effect": "灾难后记录、对象、审计和签名不一致或永久不可读，无法支持质量调查。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "恢复能力必须用实际恢复证明，备份成功日志不足。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "独立安全备份与权限",
+        "PG/对象/配置/审计一致恢复",
+        "业务连续性与任务重放控制"
+      ],
+      "scenario_ids": [
+        "VS-014"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-015",
+      "title": "迁移或退役丢失含义与关联",
+      "urs_ids": [
+        "URS-105",
+        "URS-601",
+        "URS-2109",
+        "URS-2202"
+      ],
+      "dev_ids": [
+        "DEV-024",
+        "DEV-022"
+      ],
+      "lc_ids": [
+        "LC-005",
+        "LC-009",
+        "LC-012"
+      ],
+      "failure_effect": "升级、导出或退役仅留下数值/文件却丢失单位、版本、审计和签名联系。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "长期记录用于追溯，数值相同不等于语义保持。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "版本化迁移与字段/关系映射",
+        "试迁移及差异处置",
+        "归档检索工具与保留/hold/退出计划"
+      ],
+      "scenario_ids": [
+        "VS-015"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-016",
+      "title": "依赖、配置与发布制品漂移",
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109",
+        "URS-2202"
+      ],
+      "dev_ids": [
+        "DEV-025",
+        "DEV-004",
+        "DEV-027"
+      ],
+      "lc_ids": [
+        "LC-004",
+        "LC-005",
+        "LC-008",
+        "LC-009"
+      ],
+      "failure_effect": "运行系统与已测试版本不同、依赖失去支持或源码/构建无法接续维护。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "可能同时影响多个质量控制；仅固定源代码不覆盖全部配置。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "锁版本/制品digest/配置与SBOM",
+        "供应商工具准入及支持更新",
+        "同制品推广与受控变更/交接"
+      ],
+      "scenario_ids": [
+        "VS-016"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-017",
+      "title": "实际负载下超时或不一致",
+      "urs_ids": [
+        "URS-103",
+        "URS-104"
+      ],
+      "dev_ids": [
+        "DEV-011",
+        "DEV-020",
+        "DEV-027"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-006",
+        "LC-011"
+      ],
+      "failure_effect": "代表负载下页面/报表不可用或超时重试引入重复状态，影响业务连续性。",
+      "initial_priority": "MEDIUM",
+      "initial_rationale": "注册人数不是并发量；接受口径与容量增长尚需明确。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "按原URS和代表负载定义接受标准",
+        "混合负载/容量/故障测试",
+        "超时查询/重试/容量监控"
+      ],
+      "scenario_ids": [
+        "VS-017"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    },
+    {
+      "id": "RISK-018",
+      "title": "证据、培训与运行责任缺口",
+      "urs_ids": [
+        "URS-2107",
+        "URS-2108",
+        "URS-2109",
+        "URS-2200",
+        "URS-2203",
+        "URS-2204"
+      ],
+      "dev_ids": [
+        "DEV-003",
+        "DEV-027",
+        "DEV-028"
+      ],
+      "lc_ids": [
+        "LC-002",
+        "LC-007",
+        "LC-008",
+        "LC-010",
+        "LC-011"
+      ],
+      "failure_effect": "只有CI绿色/第三方总结而无适用证据、独立审阅和受训运行人员，系统被误用为已验证。",
+      "initial_priority": "HIGH",
+      "initial_rationale": "生命周期责任和证据缺失使实际缺陷无法被充分发现和处理。",
+      "likelihood": "NOT_ESTIMATED",
+      "planned_controls": [
+        "逐项资料/风险/证据追溯与复用评估",
+        "偏差/复测及五种状态分离",
+        "SOP培训和明确企业使用批准/周期评价"
+      ],
+      "scenario_ids": [
+        "VS-018"
+      ],
+      "status": "OPEN",
+      "residual_assessment": "NOT_EVALUATED",
+      "residual_acceptance_ref": null
+    }
+  ],
+  "verification_scenarios": [
+    {
+      "id": "VS-001",
+      "title": "用途与验证边界遗漏：候选验证场景",
+      "risk_ids": [
+        "RISK-001"
+      ],
+      "urs_ids": [
+        "URS-2107",
+        "URS-2108",
+        "URS-2109"
+      ],
+      "dev_ids": [
+        "DEV-001",
+        "DEV-005",
+        "DEV-027"
+      ],
+      "lc_ids": [
+        "LC-001",
+        "LC-002",
+        "LC-010"
+      ],
+      "acceptance_direction": "按实际选定的HBOS仅入口或SSO模式核查边界，未启用模式记录为当前范围外，未来切换重新评估。核查每种质量记录/接口在SIA、规格、风险、验证或程序中有归属；未批准用途不得标为已授权。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-002",
+      "title": "身份与跨范围授权失效：候选验证场景",
+      "risk_ids": [
+        "RISK-002"
+      ],
+      "urs_ids": [
+        "URS-108",
+        "URS-2005",
+        "URS-2103"
+      ],
+      "dev_ids": [
+        "DEV-006",
+        "DEV-007",
+        "DEV-016"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006"
+      ],
+      "acceptance_direction": "对列表/详情/搜索/附件/导出/批量/worker和直调API测试未经授权跨范围、撤权、过期身份；正确拒绝且无残留缓存数据。获授权跨实验室角色按其实际范围访问。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-003",
+      "title": "样品身份与并发记录错配：候选验证场景",
+      "risk_ids": [
+        "RISK-003"
+      ],
+      "urs_ids": [
+        "URS-203",
+        "URS-304",
+        "URS-601"
+      ],
+      "dev_ids": [
+        "DEV-009",
+        "DEV-011"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006"
+      ],
+      "acceptance_direction": "并发登记/接收、重复请求、同键不同内容、旧版本更新时不出现重复编号或静默覆盖；结果归属与血缘保持。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-004",
+      "title": "首次结果/OOS被不当覆盖：候选验证场景",
+      "risk_ids": [
+        "RISK-004"
+      ],
+      "urs_ids": [
+        "URS-610",
+        "URS-704",
+        "URS-616",
+        "URS-622"
+      ],
+      "dev_ids": [
+        "DEV-009",
+        "DEV-014"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-006",
+        "LC-007"
+      ],
+      "acceptance_direction": "首次OOS、更正、复测合格/失败都完整保留；缺少科学调查和批准时不得自动解除异常、选用合格值或生成可放行结果。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-005",
+      "title": "审计缺失或无法复核：候选验证场景",
+      "risk_ids": [
+        "RISK-005"
+      ],
+      "urs_ids": [
+        "URS-110",
+        "URS-616",
+        "URS-2105"
+      ],
+      "dev_ids": [
+        "DEV-010",
+        "DEV-011"
+      ],
+      "lc_ids": [
+        "LC-004",
+        "LC-006",
+        "LC-011"
+      ],
+      "acceptance_direction": "审计写入故障时业务不出现无审计成功；更正历史完整；未经授权不能修改/停用必要审计；按审查流程可检索并解释事件。 授权维护也不能让受影响质量写入在缺失必要审计时继续，按受控停用/恢复程序处理。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-006",
+      "title": "签名绑定错误或冒用：候选验证场景",
+      "risk_ids": [
+        "RISK-006"
+      ],
+      "urs_ids": [
+        "URS-109",
+        "URS-606",
+        "URS-612",
+        "URS-615",
+        "URS-706",
+        "URS-802",
+        "URS-2106"
+      ],
+      "dev_ids": [
+        "DEV-008",
+        "DEV-006"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006"
+      ],
+      "acceptance_direction": "拒绝旧版本、被撤权签署、违规同人复核与授权重放；超时后查询原签署结果；姓名/时间/意义和记录关联可见且不可随数据覆盖改变。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-007",
+      "title": "方法、模板或计算版本错误：候选验证场景",
+      "risk_ids": [
+        "RISK-007"
+      ],
+      "urs_ids": [
+        "URS-1201",
+        "URS-601"
+      ],
+      "dev_ids": [
+        "DEV-012",
+        "DEV-013"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-005",
+        "LC-006"
+      ],
+      "acceptance_direction": "用独立参考值检验单位、修约和限度边界；未批准版本不能使用；换版不重写既有结果；非法公式不能执行任意代码。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-008",
+      "title": "人员资格或仪器时效失效：候选验证场景",
+      "risk_ids": [
+        "RISK-008"
+      ],
+      "urs_ids": [
+        "URS-618",
+        "URS-900",
+        "URS-901",
+        "URS-903",
+        "URS-1001",
+        "URS-1002"
+      ],
+      "dev_ids": [
+        "DEV-015",
+        "DEV-020"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-006",
+        "LC-011"
+      ],
+      "acceptance_direction": "资格过期、撤销、仪器逾期/故障和资格源失联分别按批准策略阻断或走受控程序；不能静默沿用未知状态。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-009",
+      "title": "原始文件不完整或恶意输入：候选验证场景",
+      "risk_ids": [
+        "RISK-009"
+      ],
+      "urs_ids": [
+        "URS-601",
+        "URS-604",
+        "URS-624"
+      ],
+      "dev_ids": [
+        "DEV-017",
+        "DEV-018"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-004",
+        "LC-006",
+        "LC-012"
+      ],
+      "acceptance_direction": "中断/错哈希/同名覆盖/越权链接/恶意模板均被妥善拒绝或隔离；未完成文件不能成为已接收原始数据，动态数据所需内容保留。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-010",
+      "title": "接口丢失、重放或语义改变：候选验证场景",
+      "risk_ids": [
+        "RISK-010"
+      ],
+      "urs_ids": [
+        "URS-604",
+        "URS-805",
+        "URS-903",
+        "URS-1401"
+      ],
+      "dev_ids": [
+        "DEV-019",
+        "DEV-020",
+        "DEV-026"
+      ],
+      "lc_ids": [
+        "LC-001",
+        "LC-003",
+        "LC-006"
+      ],
+      "acceptance_direction": "断线、乱序、重复、错来源/单位/样品、未知回执与补传有可检测处理和对账；不因模拟接口通过宣称真实设备已验证。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-011",
+      "title": "任务重投递产生重复业务效果：候选验证场景",
+      "risk_ids": [
+        "RISK-011"
+      ],
+      "urs_ids": [
+        "URS-1103",
+        "URS-1201",
+        "URS-624"
+      ],
+      "dev_ids": [
+        "DEV-011",
+        "DEV-020"
+      ],
+      "lc_ids": [
+        "LC-004",
+        "LC-005",
+        "LC-006"
+      ],
+      "acceptance_direction": "在提交前后终止worker、重复投递和broker不可用下，业务仅产生一次允许效果，任务可查可重建且失败不静默丢失。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-012",
+      "title": "报告或导出与批准记录不一致：候选验证场景",
+      "risk_ids": [
+        "RISK-012"
+      ],
+      "urs_ids": [
+        "URS-624",
+        "URS-802",
+        "URS-804",
+        "URS-1901"
+      ],
+      "dev_ids": [
+        "DEV-008",
+        "DEV-012",
+        "DEV-017",
+        "DEV-022"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-005",
+        "LC-006"
+      ],
+      "acceptance_direction": "批准后修改模板/源记录不能静默改变原报告；导出可读且足以重建指定记录；打印取消/重复及权限拒绝行为有一致语义。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-013",
+      "title": "时间来源或顺序不可信：候选验证场景",
+      "risk_ids": [
+        "RISK-013"
+      ],
+      "urs_ids": [
+        "URS-616",
+        "URS-622",
+        "URS-2105"
+      ],
+      "dev_ids": [
+        "DEV-021",
+        "DEV-008",
+        "DEV-010"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-005",
+        "LC-006",
+        "LC-011"
+      ],
+      "acceptance_direction": "时钟偏差/倒退/时区边界按批准容差与策略告警或阻断；历史时间与显示时区可解释；容差未批不得虚填通过。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-014",
+      "title": "备份存在但无法一致恢复：候选验证场景",
+      "risk_ids": [
+        "RISK-014"
+      ],
+      "urs_ids": [
+        "URS-105",
+        "URS-114",
+        "URS-1502"
+      ],
+      "dev_ids": [
+        "DEV-022",
+        "DEV-023"
+      ],
+      "lc_ids": [
+        "LC-006",
+        "LC-011"
+      ],
+      "acceptance_direction": "从受控备份实际恢复代表记录/对象/签名/审计/模板并核对；恢复时长/数据损失按批准RPO/RTO判定，已完成质量动作不得重复。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-015",
+      "title": "迁移或退役丢失含义与关联：候选验证场景",
+      "risk_ids": [
+        "RISK-015"
+      ],
+      "urs_ids": [
+        "URS-105",
+        "URS-601",
+        "URS-2109",
+        "URS-2202"
+      ],
+      "dev_ids": [
+        "DEV-024",
+        "DEV-022"
+      ],
+      "lc_ids": [
+        "LC-005",
+        "LC-009",
+        "LC-012"
+      ],
+      "acceptance_direction": "代表迁移和退役检索核对值、单位、关系、版本、审计及签名；不只比行数；禁止未授权删除仍须保存/hold的记录。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-016",
+      "title": "依赖、配置与发布制品漂移：候选验证场景",
+      "risk_ids": [
+        "RISK-016"
+      ],
+      "urs_ids": [
+        "URS-2108",
+        "URS-2109",
+        "URS-2202"
+      ],
+      "dev_ids": [
+        "DEV-025",
+        "DEV-004",
+        "DEV-027"
+      ],
+      "lc_ids": [
+        "LC-004",
+        "LC-005",
+        "LC-008",
+        "LC-009"
+      ],
+      "acceptance_direction": "换依赖/配置/模板/迁移/字体或重建不同制品时能识别差异并重评证据；未经批准升级不进入质量环境；按交接资料可恢复工程构建。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-017",
+      "title": "实际负载下超时或不一致：候选验证场景",
+      "risk_ids": [
+        "RISK-017"
+      ],
+      "urs_ids": [
+        "URS-103",
+        "URS-104"
+      ],
+      "dev_ids": [
+        "DEV-011",
+        "DEV-020",
+        "DEV-027"
+      ],
+      "lc_ids": [
+        "LC-003",
+        "LC-006",
+        "LC-011"
+      ],
+      "acceptance_direction": "在批准代表负载和计时边界下核对原URS并发≥20、页面≤3秒、报表≤20秒；保持正确性，不将入队时间或新增百分位替代原标准。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    },
+    {
+      "id": "VS-018",
+      "title": "证据、培训与运行责任缺口：候选验证场景",
+      "risk_ids": [
+        "RISK-018"
+      ],
+      "urs_ids": [
+        "URS-2107",
+        "URS-2108",
+        "URS-2109",
+        "URS-2200",
+        "URS-2203",
+        "URS-2204"
+      ],
+      "dev_ids": [
+        "DEV-003",
+        "DEV-027",
+        "DEV-028"
+      ],
+      "lc_ids": [
+        "LC-002",
+        "LC-007",
+        "LC-008",
+        "LC-010",
+        "LC-011"
+      ],
+      "acceptance_direction": "抽查需求到规格/风险/实际执行/偏差/版本全链，复用差异可解释；未执行/未批/培训未完成不能变成完成；企业决定有真实范围与授权引用。",
+      "acceptance_status": "DRAFT_REQUIRES_DOMAIN_SPECIFICATION_AND_APPROVAL",
+      "status": "NOT_RUN",
+      "evidence_ref": null
+    }
+  ]
+}

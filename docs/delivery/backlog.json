@@ -1,0 +1,21 @@
+{
+  "schema_version":1,
+  "status":"PLANNED_NOT_EXECUTED",
+  "note":"Task IDs are not GitHub Issue numbers. owner_role is a responsibility proposal, not granted access. Mapping is planning, not evidence of completed URS coverage.",
+  "tasks":[
+    {"id":"B01","title":"范围、法规、主本和OOS/QMS决策","stage":"S0","depends_on":[],"control_ids":["C01","C07","C14"],"urs_ids":["URS-105","URS-703","URS-704","URS-2109"],"function_ids":[5,6,7,21],"owner_role":"Owner/QC/QA+技术负责人","issues":[2,9],"status":"PLANNED","exit":"批准或明确阻断范围、主本、责任和待决事项"},
+    {"id":"B02","title":"复杂模板与报告渲染探测","stage":"S0","depends_on":[],"control_ids":["C08"],"urs_ids":["URS-602","URS-624","URS-800"],"function_ids":[7],"owner_role":"前端/报告+QC","issues":[8],"status":"PLANNED","exit":"5份风险模板盘点、代表复杂模板PoC及失败边界"},
+    {"id":"B03","title":"设备/CDS及企业接口盘点","stage":"S0","depends_on":[],"control_ids":["C09","C10"],"urs_ids":["URS-604","URS-620","URS-1401"],"function_ids":[16,17,18,19,20,21,24,26,27,28],"owner_role":"集成/IT+厂家技术","issues":[7,8],"status":"PLANNED","exit":"单位、型号、协议、版本、许可、原始来源和主系统责任明确"},
+    {"id":"B04","title":"独立工程、锁定依赖与OpenAPI合同","stage":"S1","depends_on":[],"control_ids":["C13","C14"],"urs_ids":["URS-100","URS-101","URS-102"],"function_ids":[1,8],"owner_role":"研发A/B","issues":[3,4,8],"status":"PLANNED","exit":"真实构建、合成环境、版本锁与合同检查；V3.1代表页面"},
+    {"id":"B05","title":"身份、数据范围、资质与职责隔离","stage":"S1","depends_on":["B01","B04"],"control_ids":["C06","C14"],"urs_ids":["URS-618","URS-900","URS-2001","URS-2011"],"function_ids":[8,20],"owner_role":"研发A+QA","issues":[5],"status":"PLANNED","exit":"列表/详情/导出/附件拒绝矩阵及撤权/会话测试"},
+    {"id":"B06","title":"标准方法/流程版本与计算金标准","stage":"S1","depends_on":["B01","B04"],"control_ids":["C04","C05"],"urs_ids":["URS-500","URS-607","URS-1201","URS-1306"],"function_ids":[7,11,19,25],"owner_role":"研发A+QC","issues":[5],"status":"PLANNED","exit":"批准生效、历史快照、QC固定样例及边界测试"},
+    {"id":"B07","title":"受控草稿、质量审计与审计复核基础","stage":"S1","depends_on":["B04","B05"],"control_ids":["C02","C03"],"urs_ids":["URS-601","URS-603","URS-616","URS-622"],"function_ids":[7],"owner_role":"研发A/B+QA","issues":[5],"status":"PLANNED","exit":"首次原值/更正/中断/冲突可追溯，复核覆盖范围可见"},
+    {"id":"B08","title":"请验取样接收分配纵向增量","stage":"S2","depends_on":["B05","B06","B07"],"control_ids":["C04","C06"],"urs_ids":["URS-200","URS-300","URS-400","URS-500"],"function_ids":[1,4,8],"owner_role":"研发A/B+QC","issues":[4,5],"status":"PLANNED","exit":"同一对象UI/API/权限/审计一致，越序与重复拒绝"},
+    {"id":"B09","title":"检验LES结果、资源引用及受控更正","stage":"S2","depends_on":["B06","B07","B08"],"control_ids":["C02","C05","C06"],"urs_ids":["URS-601","URS-607","URS-610","URS-613","URS-619"],"function_ids":[7,9,10,11,12,13],"owner_role":"研发A/B+QC","issues":[4,5,6],"status":"PLANNED","exit":"最小资源阻断、Decimal判定、原始记录和刷新/并发证据"},
+    {"id":"B10","title":"复核签署、异常、报告归档闭环","stage":"S2","depends_on":["B02","B09"],"control_ids":["C03","C07","C08"],"urs_ids":["URS-703","URS-704","URS-706","URS-800","URS-2105"],"function_ids":[1,5,7,21],"owner_role":"研发A/B+QC/QA","issues":[5],"status":"PLANNED","exit":"错误/重复/旧版签署拒绝，异常来源保留，报告冻结与重印"},
+    {"id":"B11","title":"试点资源与两类代表数据源","stage":"S3","depends_on":["B03","B09"],"control_ids":["C06","C09","C10"],"urs_ids":["URS-604","URS-620","URS-1400","URS-1401"],"function_ids":[9,10,11,12,13,19,20,24,26,27,28],"owner_role":"研发C/轮值+IT/厂家技术","issues":[6,7,10],"status":"PLANNED","exit":"目标源原始数据、缓冲、异常隔离及准入记录；非全部设备完成"},
+    {"id":"B12","title":"联合安全、容量、报告和一致恢复","stage":"S3","depends_on":["B10","B11"],"control_ids":["C08","C12","C14"],"urs_ids":["URS-103","URS-104","URS-105","URS-114"],"function_ids":[1,7,25],"owner_role":"研发C/IT+QA","issues":[7,8,10],"status":"PLANNED","exit":"目标配置混合负载、真实PG/对象恢复与权限/失败证据"},
+    {"id":"B13","title":"固定候选、独立验证及受控试点","stage":"S4","depends_on":["B01","B12"],"control_ids":["C01","C13","C14"],"urs_ids":["URS-2107","URS-2108","URS-2109"],"function_ids":[1,7],"owner_role":"第三方验证+QA/QC/IT","issues":[7,9],"status":"PLANNED","exit":"批准协议/偏差/复测、PQ/SOP/培训/主本切换及QA放行"},
+    {"id":"B14","title":"专域与全量接口分批扩展","stage":"S5","depends_on":["B13"],"control_ids":["C04","C06","C07","C09","C10","C11","C12","C13"],"urs_ids":["URS-601","URS-602","URS-623","URS-1600","URS-1700","URS-1800"],"function_ids":[2,3,4,5,7,9,10,11,12,13,16,17,18,19,20,21,22,23,24,25,26,27,28],"owner_role":"研发轮转+业务/厂家技术/验证","issues":[6,7],"status":"PLANNED","exit":"按子任务逐项范围关闭；每增量影响分析、回归及必要再验证"}
+  ]
+}
